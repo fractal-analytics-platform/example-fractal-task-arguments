@@ -208,3 +208,6 @@ __marimo__/
 
 
 single_json_schemas/*.json
+
+# MacOS specific files
+.DS_Store
