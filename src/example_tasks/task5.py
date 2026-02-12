@@ -78,6 +78,11 @@ def task5(
     #
     # default factories are not evaluated during the build process
     factory_args: list[int] = Field(default_factory=lambda: [1, 2, 3]),
+    # Wish list: support for markdown some markdown rendering in the description of the task
+    # and allow Field(description="Some **markdown** description") to override the 
+    # default doc string description of the argument in the UI.
+    # No need to support the full markdown syntax, just basic formatting like **bold**, *italic* and bullet points would be great.
+    # markdown_description_arg: str = Field(default="test", description="This is a **markdown** description")
 ):
     """
     Short description of task5
