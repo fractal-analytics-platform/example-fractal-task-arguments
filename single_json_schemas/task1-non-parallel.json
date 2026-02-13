@@ -1,7 +1,20 @@
 {
   "$defs": {
     "MyEnum": {
-        type": "string"
+      "enum": [
+        "Value 1",
+        "Value 2"
+      ],
+      "title": "MyEnum",
+      "type": "string",
+      "description": "Missing description for MyEnum."
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "zarr_urls": {
+      "items": {
+        "type": "string"
       },
       "title": "Zarr Urls",
       "type": "array",

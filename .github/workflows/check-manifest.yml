@@ -1,4 +1,4 @@
-name: Check manifest and single schemas
+name: Manifest and schemas
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
           enable-cache: true
 
       - run: uv sync --frozen
-      
+
       - run: uv run --no-sync --frozen fractal-manifest check --package example-tasks
 
   check-single-schemas:
