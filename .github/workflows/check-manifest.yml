@@ -39,8 +39,6 @@ jobs:
     name: Check single JSON schemas
     runs-on: ubuntu-24.04
     timeout-minutes: 5
-    needs:
-      - check-manifest
 
     steps:   
       - uses: actions/checkout@v4
