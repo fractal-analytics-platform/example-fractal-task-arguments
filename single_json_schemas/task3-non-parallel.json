@@ -1,0 +1,53 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "zarr_urls": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Zarr Urls",
+      "type": "array",
+      "description": "Missing description"
+    },
+    "zarr_dir": {
+      "title": "Zarr Dir",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "object_arg": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "title": "Object Arg",
+      "type": "object",
+      "description": "Object argument."
+    },
+    "optional_object_arg": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "title": "Optional Object Arg",
+      "type": "object",
+      "description": "Optional object argument."
+    },
+    "nested_object_arg": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "title": "Nested Object Arg",
+      "type": "object",
+      "description": "Nested object argument."
+    }
+  },
+  "required": [
+    "zarr_urls",
+    "zarr_dir",
+    "object_arg",
+    "nested_object_arg"
+  ],
+  "type": "object",
+  "title": "Task3"
+}
