@@ -1,0 +1,78 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "zarr_urls": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Zarr Urls",
+      "type": "array",
+      "description": "Missing description"
+    },
+    "zarr_dir": {
+      "title": "Zarr Dir",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "list_arg": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "List Arg",
+      "type": "array",
+      "description": "An arbitrary-size array of integers."
+    },
+    "tuple_arg": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "Tuple Arg",
+      "type": "array",
+      "description": "A fixed-size array of integers."
+    },
+    "optional_list_arg": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Optional List Arg",
+      "type": "array",
+      "description": "An optional arbitrary-size array of integers."
+    },
+    "optional_tuple_arg": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "Optional Tuple Arg",
+      "type": "array",
+      "description": "An optional fixed-size array of integers."
+    }
+  },
+  "required": [
+    "zarr_urls",
+    "zarr_dir",
+    "list_arg",
+    "tuple_arg"
+  ],
+  "type": "object",
+  "title": "Task2"
+}
