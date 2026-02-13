@@ -190,7 +190,7 @@
     },
     "custom_title": {
       "default": "test",
-      "title": "Custom title",
+      "title": "Custom title 2",
       "type": "string",
       "description": "example of a way to add a custom title to the schema of an argument."
     },

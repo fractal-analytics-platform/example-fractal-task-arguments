@@ -58,7 +58,7 @@ def task5(
     zarr_urls: list[str],
     zarr_dir: str,
     # Task-specific arguments
-    custom_title: str = Field(default="test",title="Custom title"),
+    custom_title: str = Field(default="test",title="Custom title 2"),
     regex_arg: str = Field(default="test", pattern=r"^[a-zA-Z0-9_]+$"),
     list_arg: list[int] = Field(min_length=0, max_length=10, json_schema_extra={"uniqueItems": True}, default_factory=lambda: [1, 2, 3]),
     float_arg: float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0),
