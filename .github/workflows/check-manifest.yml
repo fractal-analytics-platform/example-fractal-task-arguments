@@ -1,4 +1,4 @@
-name: Check manifest
+name: Check manifest and single schemas
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions: {}
 jobs:
 
   check-manifest:
-    name: "Python ${{ matrix.python-version }}"
+    name: "Manifest / python ${{ matrix.python-version }}"
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     strategy:
@@ -33,10 +33,11 @@ jobs:
           enable-cache: true
 
       - run: uv sync --frozen
+      
       - run: uv run --no-sync --frozen fractal-manifest check --package example-tasks
 
   check-single-schemas:
-    name: Check single JSON schemas
+    name: Single JSON schemas
     runs-on: ubuntu-24.04
     timeout-minutes: 5
 
