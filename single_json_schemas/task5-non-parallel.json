@@ -139,6 +139,7 @@
           "description": "list of pydantic models union with none. When the list is empty the field will be set to none."
         },
         "field_4": {
+          "default": [],
           "items": {
             "discriminator": {
               "mapping": {
@@ -202,6 +203,11 @@
       "description": "example of a way to add a regex pattern to the schema of an argument."
     },
     "list_arg": {
+      "default": [
+        1,
+        2,
+        3
+      ],
       "items": {
         "type": "integer"
       },
@@ -281,6 +287,11 @@
       "description": "example of a field that is currently not correctly handled by the UI."
     },
     "factory_args": {
+      "default": [
+        1,
+        2,
+        3
+      ],
       "items": {
         "type": "integer"
       },
