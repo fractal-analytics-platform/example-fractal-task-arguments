@@ -417,6 +417,10 @@
           },
           "pydantic_3": {
             "$ref": "#/$defs/ModelAllOptional",
+            "default": {
+              "x": null,
+              "y": 1
+            },
             "title": "Pydantic 3",
             "description": "Example of a Pydantic model with no required field, with a default factory."
           },
@@ -453,6 +457,7 @@
             "description": "Example of a top-level tagged union, with a default value."
           },
           "nested_tagged_union": {
+            "default": [],
             "items": {
               "discriminator": {
                 "mapping": {
@@ -635,6 +640,7 @@
                 "description": "list of pydantic models union with none. When the list is empty the field will be set to none."
               },
               "field_4": {
+                "default": [],
                 "items": {
                   "discriminator": {
                     "mapping": {
@@ -698,6 +704,11 @@
             "description": "example of a way to add a regex pattern to the schema of an argument."
           },
           "list_arg": {
+            "default": [
+              1,
+              2,
+              3
+            ],
             "items": {
               "type": "integer"
             },
@@ -777,6 +788,11 @@
             "description": "example of a field that is currently not correctly handled by the UI."
           },
           "factory_args": {
+            "default": [
+              1,
+              2,
+              3
+            ],
             "items": {
               "type": "integer"
             },
