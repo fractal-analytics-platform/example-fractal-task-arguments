@@ -13,11 +13,11 @@ wheels = [
 
 [[package]]
 name = "docstring-parser"
-version = "0.16"
+version = "0.17.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/08/12/9c22a58c0b1e29271051222d8906257616da84135af9ed167c9e28f85cb3/docstring_parser-0.16.tar.gz", hash = "sha256:538beabd0af1e2db0146b6bd3caa526c35a34d61af9fd2887f3a8a27a739aa6e", size = 26565, upload-time = "2024-03-15T10:39:44.419Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b2/9d/c3b43da9515bd270df0f80548d9944e389870713cc1fe2b8fb35fe2bcefd/docstring_parser-0.17.0.tar.gz", hash = "sha256:583de4a309722b3315439bb31d64ba3eebada841f2e2cee23b99df001434c912", size = 27442, upload-time = "2025-07-21T07:35:01.868Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d5/7c/e9fcff7623954d86bdc17782036cbf715ecab1bec4847c008557affe1ca8/docstring_parser-0.16-py3-none-any.whl", hash = "sha256:bf0a1387354d3691d102edef7ec124f219ef639982d096e26e3b60aeffa90637", size = 36533, upload-time = "2024-03-15T10:39:41.527Z" },
+    { url = "https://files.pythonhosted.org/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl", hash = "sha256:cf2569abd23dce8099b300f9b4fa8191e9582dda731fd533daf54c4551658708", size = 36896, upload-time = "2025-07-21T07:35:00.684Z" },
 ]
 
 [[package]]
@@ -31,31 +31,21 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fractal-task-tools", specifier = "==0.4.0a0" },
-    { name = "pydantic", specifier = ">=2.6.0" },
+    { name = "fractal-task-tools", specifier = "==0.4.0a1" },
+    { name = "pydantic", specifier = ">=2.11.0" },
 ]
 
 [[package]]
 name = "fractal-task-tools"
-version = "0.4.0a0"
+version = "0.4.0a1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "docstring-parser" },
-    { name = "packaging" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/77/fb/d81a95523b1eb9956860616edb5040a25576099f67c1a5cdf3a1af1bce2a/fractal_task_tools-0.4.0a0.tar.gz", hash = "sha256:e32c1d8351aaafaac183e2572d6198fca803faf04c86ab58b433e63a8b69117f", size = 28528, upload-time = "2026-02-16T09:42:51.252Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/25/85/00068d74a97531671799ea1f2abd7542ffe04ddf6a27612c8b992c2006d1/fractal_task_tools-0.4.0a1.tar.gz", hash = "sha256:01de4d7707bc1887f54b70942e25fff7b207f26c78ee15868cf082f6276736b9", size = 28430, upload-time = "2026-02-17T14:07:00.541Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f0/29/e1f4a8995398757c95448a52d46a75984f513999ecdd97c7d3a2c1889e36/fractal_task_tools-0.4.0a0-py3-none-any.whl", hash = "sha256:954f21c624dfc781ddc41b32854866e72d898d91015adbb0044afdddc93eb7e3", size = 25181, upload-time = "2026-02-16T09:42:49.748Z" },
-]
-
-[[package]]
-name = "packaging"
-version = "26.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz", hash = "sha256:00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4", size = 143416, upload-time = "2026-01-21T20:50:39.064Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b7/b9/c538f279a4e237a006a2c98387d081e9eb060d203d8ed34467cc0f0b9b53/packaging-26.0-py3-none-any.whl", hash = "sha256:b36f1fef9334a5588b4166f8bcd26a14e521f2b55e6b9de3aaa80d3ff7a37529", size = 74366, upload-time = "2026-01-21T20:50:37.788Z" },
+    { url = "https://files.pythonhosted.org/packages/cd/61/1de99d1de6034f654bb27d12efb445262364dae9f98422a5d4e3a41b2a66/fractal_task_tools-0.4.0a1-py3-none-any.whl", hash = "sha256:c22b2e5a504ca16827df3e77e5722ebbc2b032dce7018d7083b738892ebb0bb9", size = 24774, upload-time = "2026-02-17T14:06:59.42Z" },
 ]
 
 [[package]]
