@@ -3,11 +3,9 @@ name = "example-tasks"
 version = "0.0.1"
 description = "Fake tasks package"
 readme = "README.md"
-authors = [
-    { name = "Your Name", email = "first.last@example.com" },
-]
+authors = [{ name = "Your Name", email = "first.last@example.com" }]
 requires-python = ">=3.11,<3.15"
-dependencies = ["pydantic>=2.6.0", "fractal-task-tools==0.3.0"]
+dependencies = ["pydantic>=2.11.0", "fractal-task-tools==0.4.0a1"]
 
 [build-system]
 requires = ["setuptools >= 80.0"]
