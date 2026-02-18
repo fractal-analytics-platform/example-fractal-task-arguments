@@ -44,13 +44,29 @@
             "description": "Integer argument with a default value."
           },
           "int_3": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "title": "Int 3",
-            "type": "integer",
             "description": "Integer or null argument, with default value set to null."
           },
           "int_4": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "title": "Int 4",
-            "type": "integer",
             "description": "Integer or null argument, with default value set to null."
           },
           "str_1": {
@@ -181,29 +197,45 @@
             "description": "A fixed-size array of integers."
           },
           "optional_list_arg": {
-            "items": {
-              "type": "integer"
-            },
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "title": "Optional List Arg",
-            "type": "array",
             "description": "An optional arbitrary-size array of integers."
           },
           "optional_tuple_arg": {
-            "maxItems": 3,
-            "minItems": 3,
-            "prefixItems": [
+            "anyOf": [
               {
-                "type": "integer"
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
+                "type": "array"
               },
               {
-                "type": "integer"
-              },
-              {
-                "type": "integer"
+                "type": "null"
               }
             ],
+            "default": null,
             "title": "Optional Tuple Arg",
-            "type": "array",
             "description": "An optional fixed-size array of integers."
           }
         },
@@ -247,11 +279,19 @@
             "description": "Object argument."
           },
           "optional_object_arg": {
-            "additionalProperties": {
-              "type": "boolean"
-            },
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "boolean"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "title": "Optional Object Arg",
-            "type": "object",
             "description": "Optional object argument."
           },
           "nested_object_arg": {
@@ -351,8 +391,16 @@
             "description": "Short description of `ModelAllOptional`.",
             "properties": {
               "x": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
                 "title": "X",
-                "type": "integer",
                 "description": "FIXME"
               },
               "y": {
@@ -369,8 +417,16 @@
             "description": "Short description of `ModelSomeRequired`.",
             "properties": {
               "x": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
                 "title": "X",
-                "type": "integer",
                 "description": "FIXME"
               },
               "y": {
@@ -610,33 +666,41 @@
                 "description": "yyy"
               },
               "field_3": {
-                "items": {
-                  "discriminator": {
-                    "mapping": {
-                      "label1": "#/$defs/InternalModel1",
-                      "label2": "#/$defs/InternalModel2",
-                      "label3": "#/$defs/InternalModel3",
-                      "label4": "#/$defs/InternalModel4"
+                "anyOf": [
+                  {
+                    "items": {
+                      "discriminator": {
+                        "mapping": {
+                          "label1": "#/$defs/InternalModel1",
+                          "label2": "#/$defs/InternalModel2",
+                          "label3": "#/$defs/InternalModel3",
+                          "label4": "#/$defs/InternalModel4"
+                        },
+                        "propertyName": "label"
+                      },
+                      "oneOf": [
+                        {
+                          "$ref": "#/$defs/InternalModel1"
+                        },
+                        {
+                          "$ref": "#/$defs/InternalModel2"
+                        },
+                        {
+                          "$ref": "#/$defs/InternalModel3"
+                        },
+                        {
+                          "$ref": "#/$defs/InternalModel4"
+                        }
+                      ]
                     },
-                    "propertyName": "label"
+                    "type": "array"
                   },
-                  "oneOf": [
-                    {
-                      "$ref": "#/$defs/InternalModel1"
-                    },
-                    {
-                      "$ref": "#/$defs/InternalModel2"
-                    },
-                    {
-                      "$ref": "#/$defs/InternalModel3"
-                    },
-                    {
-                      "$ref": "#/$defs/InternalModel4"
-                    }
-                  ]
-                },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
                 "title": "Field 3",
-                "type": "array",
                 "description": "list of pydantic models union with none. When the list is empty the field will be set to none."
               },
               "field_4": {
@@ -756,7 +820,15 @@
             "description": "example of a way to add a nested tagged union argument (usefull to extend tagged unions defined in other tasks)."
           },
           "enum_arg": {
-            "$ref": "#/$defs/EnumDropdown",
+            "anyOf": [
+              {
+                "$ref": "#/$defs/EnumDropdown"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "title": "Enum Arg",
             "description": "menu argument using StrEnum, which will be rendered as a dropdown in the UI."
           },
@@ -783,7 +855,15 @@
             "description": "example of a way to add a nested Pydantic model as an argument."
           },
           "model_or_none": {
-            "$ref": "#/$defs/InternalModel4",
+            "anyOf": [
+              {
+                "$ref": "#/$defs/InternalModel4"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "title": "Model Or None",
             "description": "example of a field that is currently not correctly handled by the UI."
           },
@@ -813,6 +893,6 @@
     }
   ],
   "has_args_schemas": true,
-  "args_schema_version": "pydantic_v2",
+  "args_schema_version": "pydantic_v2_next",
   "authors": "Your Name"
 }

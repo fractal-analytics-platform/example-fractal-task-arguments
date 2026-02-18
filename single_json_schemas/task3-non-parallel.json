@@ -23,11 +23,19 @@
       "description": "Object argument."
     },
     "optional_object_arg": {
-      "additionalProperties": {
-        "type": "boolean"
-      },
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Optional Object Arg",
-      "type": "object",
       "description": "Optional object argument."
     },
     "nested_object_arg": {

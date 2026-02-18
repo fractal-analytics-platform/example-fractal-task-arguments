@@ -37,13 +37,29 @@
       "description": "Integer argument with a default value."
     },
     "int_3": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Int 3",
-      "type": "integer",
       "description": "Integer or null argument, with default value set to null."
     },
     "int_4": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Int 4",
-      "type": "integer",
       "description": "Integer or null argument, with default value set to null."
     },
     "str_1": {

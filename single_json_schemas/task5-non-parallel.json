@@ -109,33 +109,41 @@
           "description": "yyy"
         },
         "field_3": {
-          "items": {
-            "discriminator": {
-              "mapping": {
-                "label1": "#/$defs/InternalModel1",
-                "label2": "#/$defs/InternalModel2",
-                "label3": "#/$defs/InternalModel3",
-                "label4": "#/$defs/InternalModel4"
+          "anyOf": [
+            {
+              "items": {
+                "discriminator": {
+                  "mapping": {
+                    "label1": "#/$defs/InternalModel1",
+                    "label2": "#/$defs/InternalModel2",
+                    "label3": "#/$defs/InternalModel3",
+                    "label4": "#/$defs/InternalModel4"
+                  },
+                  "propertyName": "label"
+                },
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/InternalModel1"
+                  },
+                  {
+                    "$ref": "#/$defs/InternalModel2"
+                  },
+                  {
+                    "$ref": "#/$defs/InternalModel3"
+                  },
+                  {
+                    "$ref": "#/$defs/InternalModel4"
+                  }
+                ]
               },
-              "propertyName": "label"
+              "type": "array"
             },
-            "oneOf": [
-              {
-                "$ref": "#/$defs/InternalModel1"
-              },
-              {
-                "$ref": "#/$defs/InternalModel2"
-              },
-              {
-                "$ref": "#/$defs/InternalModel3"
-              },
-              {
-                "$ref": "#/$defs/InternalModel4"
-              }
-            ]
-          },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "title": "Field 3",
-          "type": "array",
           "description": "list of pydantic models union with none. When the list is empty the field will be set to none."
         },
         "field_4": {
@@ -255,7 +263,15 @@
       "description": "example of a way to add a nested tagged union argument (usefull to extend tagged unions defined in other tasks)."
     },
     "enum_arg": {
-      "$ref": "#/$defs/EnumDropdown",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EnumDropdown"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Enum Arg",
       "description": "menu argument using StrEnum, which will be rendered as a dropdown in the UI."
     },
@@ -282,7 +298,15 @@
       "description": "example of a way to add a nested Pydantic model as an argument."
     },
     "model_or_none": {
-      "$ref": "#/$defs/InternalModel4",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/InternalModel4"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Model Or None",
       "description": "example of a field that is currently not correctly handled by the UI."
     },

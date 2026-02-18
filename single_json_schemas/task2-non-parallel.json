@@ -41,29 +41,45 @@
       "description": "A fixed-size array of integers."
     },
     "optional_list_arg": {
-      "items": {
-        "type": "integer"
-      },
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Optional List Arg",
-      "type": "array",
       "description": "An optional arbitrary-size array of integers."
     },
     "optional_tuple_arg": {
-      "maxItems": 3,
-      "minItems": 3,
-      "prefixItems": [
+      "anyOf": [
         {
-          "type": "integer"
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "type": "array"
         },
         {
-          "type": "integer"
-        },
-        {
-          "type": "integer"
+          "type": "null"
         }
       ],
+      "default": null,
       "title": "Optional Tuple Arg",
-      "type": "array",
       "description": "An optional fixed-size array of integers."
     }
   },

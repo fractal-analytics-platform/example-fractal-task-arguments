@@ -68,8 +68,16 @@
       "description": "Short description of `ModelAllOptional`.",
       "properties": {
         "x": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "title": "X",
-          "type": "integer",
           "description": "FIXME"
         },
         "y": {
@@ -86,8 +94,16 @@
       "description": "Short description of `ModelSomeRequired`.",
       "properties": {
         "x": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "title": "X",
-          "type": "integer",
           "description": "FIXME"
         },
         "y": {
