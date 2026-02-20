@@ -6,6 +6,7 @@ TASK_LIST = [
     NonParallelTask(name="task3", executable="task3.py"),
     NonParallelTask(name="task4", executable="task4.py"),
     NonParallelTask(name="task5", executable="task5.py"),
+    NonParallelTask(name="task6", executable="task6.py"),
 ]
 
 
@@ -18,5 +19,9 @@ INPUT_MODELS = [
     ("example_tasks", "task4.py", "InternalModel2"),
     ("example_tasks", "task4.py", "InternalModel3"),
     ("example_tasks", "task5.py", "InternalModel4"),
-    ("example_tasks", "task5.py", "NestedModel"),    
+    ("example_tasks", "task5.py", "NestedModel"),
+    ("example_tasks", "task6.py", "ModelWithCoupledFields"),
+    ("example_tasks", "task6.py", "ModelWithDependentRequired"),
+    ("example_tasks", "task6.py", "ModelWithMultipleConditions"),
+    ("example_tasks", "task6.py", "ModelWithMutuallyExclusiveFields"),
 ]
