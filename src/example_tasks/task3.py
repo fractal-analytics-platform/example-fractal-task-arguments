@@ -19,8 +19,8 @@ def task3(
     mock task for testing.
 
     Args:
-        object_arg: Object argument.
-        optional_object_arg: Optional object argument.
-        nested_object_arg: Nested object argument.
+        object_arg: Type hint `dict[int, bool]`
+        optional_object_arg: Type hint `dict[int, bool] | None = None`
+        nested_object_arg: Type hint `dict[str, dict[str, str]]`
     """
     pass
