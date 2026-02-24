@@ -39,19 +39,18 @@ def task1(
     mock task for testing.
 
     Args:
-        int_1: Integer argument.
-        int_2: Integer argument with a default value.
-        int_3: Integer or null argument, with default value set to null.
-        int_4: Integer or null argument, with default value set to null.
-        str_1: String argument.
-        str_2: String argument with a default value.
-        bool_1: Boolean argument.
-        bool_2: Boolean argument with a default value.
-        float_1: Float argument.
-        float_2: Float argument with a default value
-        enum_1: Enum argument.
-        enum_2: Enum argument with a default.
-        literal_1: Literal argument.
-        literal_2: Literal argument with a default value.
+        int_2: Type hint `int = 1`
+        int_3: Type hint `int | None = None`
+        int_4: Type hint `Optional[int] = None`
+        str_1: Type hint `str`
+        str_2: Type hint `str = "default"`
+        bool_1: Type hint `bool`
+        bool_2: Type hint `bool = False`
+        float_1: Type hint `float`
+        float_2: Type hint `float = 1.23`
+        enum_1: Type hint `MyEnum`
+        enum_2: Type hint `MyEnum = MyEnum.name1`
+        literal_1 Type hint:` Type hint `Literal["a", "b", "c"]`
+        literal_2: Type hint `Literal["a", "b", "c"] = "a"`
     """
     pass
