@@ -28,7 +28,7 @@
     "int_1": {
       "title": "Int 1",
       "type": "integer",
-      "description": "Missing description"
+      "description": "Type hint `int`"
     },
     "int_2": {
       "default": 1,

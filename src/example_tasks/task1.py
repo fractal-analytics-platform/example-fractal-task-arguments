@@ -39,6 +39,7 @@ def task1(
     mock task for testing.
 
     Args:
+        int_1: Type hint `int`
         int_2: Type hint `int = 1`
         int_3: Type hint `int | None = None`
         int_4: Type hint `Optional[int] = None`
