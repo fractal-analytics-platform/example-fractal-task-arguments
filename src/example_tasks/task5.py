@@ -28,14 +28,11 @@ NestedTaggedUnion = Annotated[
 ]
 
 class EnumDropdown(StrEnum):
+    """
+    Description of `EnumDropdown`
+    """
     name1 = "Value 1"
-    """
-    Enum value 1
-    """
     name2 = "Value 2"
-    """
-    Enum value 2
-    """
     
     
 class NestedModel(BaseModel):

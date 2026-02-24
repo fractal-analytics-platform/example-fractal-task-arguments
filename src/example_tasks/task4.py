@@ -112,14 +112,11 @@ class Model3(BaseModel):
 
 
 class MyEnum(Enum):
+    """
+    Description of `MyEnum`
+    """
     name1 = "Value 1"
-    """
-    Enum value 1
-    """
     name2 = "Value 2"
-    """
-    Enum value 2
-    """
 
 
 @validate_call

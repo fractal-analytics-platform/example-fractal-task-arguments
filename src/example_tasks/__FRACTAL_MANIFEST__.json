@@ -502,13 +502,13 @@
       "args_schema_non_parallel": {
         "$defs": {
           "EnumDropdown": {
+            "description": "Description of `EnumDropdown`",
             "enum": [
               "Value 1",
               "Value 2"
             ],
             "title": "EnumDropdown",
-            "type": "string",
-            "description": "Missing description for EnumDropdown."
+            "type": "string"
           },
           "InternalModel1": {
             "description": "Description of `InternalModel1`.",
