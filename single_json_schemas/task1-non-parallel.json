@@ -28,13 +28,13 @@
     "int_1": {
       "title": "Int 1",
       "type": "integer",
-      "description": "Integer argument."
+      "description": "Type hint `int`"
     },
     "int_2": {
       "default": 1,
       "title": "Int 2",
       "type": "integer",
-      "description": "Integer argument with a default value."
+      "description": "Type hint `int = 1`"
     },
     "int_3": {
       "anyOf": [
@@ -47,7 +47,7 @@
       ],
       "default": null,
       "title": "Int 3",
-      "description": "Integer or null argument, with default value set to null."
+      "description": "Type hint `int | None = None`"
     },
     "int_4": {
       "anyOf": [
@@ -60,51 +60,51 @@
       ],
       "default": null,
       "title": "Int 4",
-      "description": "Integer or null argument, with default value set to null."
+      "description": "Type hint `Optional[int] = None`"
     },
     "str_1": {
       "title": "Str 1",
       "type": "string",
-      "description": "String argument."
+      "description": "Type hint `str`"
     },
     "str_2": {
       "default": "default",
       "title": "Str 2",
       "type": "string",
-      "description": "String argument with a default value."
+      "description": "Type hint `str = \"default\"`"
     },
     "bool_1": {
       "title": "Bool 1",
       "type": "boolean",
-      "description": "Boolean argument."
+      "description": "Type hint `bool`"
     },
     "bool_2": {
       "default": false,
       "title": "Bool 2",
       "type": "boolean",
-      "description": "Boolean argument with a default value."
+      "description": "Type hint `bool = False`"
     },
     "float_1": {
       "title": "Float 1",
       "type": "number",
-      "description": "Float argument."
+      "description": "Type hint `float`"
     },
     "float_2": {
       "default": 1.23,
       "title": "Float 2",
       "type": "number",
-      "description": "Float argument with a default value"
+      "description": "Type hint `float = 1.23`"
     },
     "enum_1": {
       "$ref": "#/$defs/MyEnum",
       "title": "Enum 1",
-      "description": "Enum argument."
+      "description": "Type hint `MyEnum`"
     },
     "enum_2": {
       "$ref": "#/$defs/MyEnum",
       "default": "Value 1",
       "title": "Enum 2",
-      "description": "Enum argument with a default."
+      "description": "Type hint `MyEnum = MyEnum.name1`"
     },
     "literal_1": {
       "enum": [
@@ -114,7 +114,7 @@
       ],
       "title": "Literal 1",
       "type": "string",
-      "description": "Literal argument."
+      "description": "Missing description"
     },
     "literal_2": {
       "default": "a",
@@ -125,7 +125,7 @@
       ],
       "title": "Literal 2",
       "type": "string",
-      "description": "Literal argument with a default value."
+      "description": "Type hint `Literal[\"a\", \"b\", \"c\"] = \"a\"`"
     }
   },
   "required": [

@@ -20,7 +20,7 @@
       },
       "title": "List Arg",
       "type": "array",
-      "description": "An arbitrary-size array of integers."
+      "description": "Type hint `list[int]`"
     },
     "tuple_arg": {
       "maxItems": 3,
@@ -38,7 +38,7 @@
       ],
       "title": "Tuple Arg",
       "type": "array",
-      "description": "A fixed-size array of integers."
+      "description": "Type hint `tuple[int, int, int]`"
     },
     "optional_list_arg": {
       "anyOf": [
@@ -54,7 +54,7 @@
       ],
       "default": null,
       "title": "Optional List Arg",
-      "description": "An optional arbitrary-size array of integers."
+      "description": "Type hint `list[int] | None = None`"
     },
     "optional_tuple_arg": {
       "anyOf": [
@@ -80,7 +80,7 @@
       ],
       "default": null,
       "title": "Optional Tuple Arg",
-      "description": "An optional fixed-size array of integers."
+      "description": "Type hint `tuple[int, int, int] | None = None`"
     }
   },
   "required": [

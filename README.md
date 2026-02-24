@@ -25,3 +25,10 @@ and find the generated manifest file at `src/example_tasks/__FRACTAL_MANIFEST__.
 uv run ./single_json_schemas/extract.py
 ```
 which generates JSON schema files in the `single_json_schemas/` folder. Then review the corresponding `fractal-web` user-interface at https://fractal-analytics-platform.github.io/fractal-web/sandbox/#jschema, where you can also interactively edit the JSON Schema until you reach the expected result.
+
+
+## Contributors and license
+
+The Fractal project is developed by the [BioVisionCenter](https://www.biovisioncenter.uzh.ch/en.html) at the University of Zurich, who contracts [eXact lab S.r.l](https://www.exact-lab.it/en/). for software engineering and development support.
+
+Unless otherwise specified, Fractal components are released under the BSD 3-Clause License, and copyright is with the BioVisionCenter at the University of Zurich.

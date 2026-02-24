@@ -20,7 +20,7 @@
       },
       "title": "Object Arg",
       "type": "object",
-      "description": "Object argument."
+      "description": "Type hint `dict[int, bool]`"
     },
     "optional_object_arg": {
       "anyOf": [
@@ -36,7 +36,7 @@
       ],
       "default": null,
       "title": "Optional Object Arg",
-      "description": "Optional object argument."
+      "description": "Type hint `dict[int, bool] | None = None`"
     },
     "nested_object_arg": {
       "additionalProperties": {
@@ -47,7 +47,7 @@
       },
       "title": "Nested Object Arg",
       "type": "object",
-      "description": "Nested object argument."
+      "description": "Type hint `dict[str, dict[str, str]]`"
     }
   },
   "required": [
