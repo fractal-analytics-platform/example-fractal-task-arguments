@@ -20,9 +20,9 @@ def task2(
     mock task for testing.
 
     Args:
-        list_arg: An arbitrary-size array of integers.
-        tuple_arg: A fixed-size array of integers.
-        optional_list_arg: An optional arbitrary-size array of integers.
-        optional_tuple_arg: An optional fixed-size array of integers.
+        list_arg: Type hint `list[int]`
+        tuple_arg: Type hint `tuple[int, int, int]`
+        optional_list_arg: Type hint `list[int] | None = None`
+        optional_tuple_arg: Type hint `tuple[int, int, int] | None = None`
     """
     pass
