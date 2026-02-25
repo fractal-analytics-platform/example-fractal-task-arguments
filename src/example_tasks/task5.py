@@ -10,6 +10,11 @@ from example_tasks.task4 import TaggedUnion
 class InternalModel4(BaseModel):
     """
     Description of InternalModel4.
+
+
+    Attributes:
+        label: FIXME, this should be not be here
+        field: FIXME, this should be not be here
     """
 
     label: Literal["label4"] = "label4"
@@ -38,6 +43,12 @@ class EnumDropdown(StrEnum):
 class NestedModel(BaseModel):
     """
     Description of `NestedModel`.
+
+    Attributes:
+        field_1: FIXME, this should be not be here
+        field_2: FIXME, this should be not be here
+        field_3: FIXME, this should be not be here
+        field_4: FIXME, this should be not be here
     """
     field_1: str = "default value"
     """
@@ -59,6 +70,9 @@ class NestedModel(BaseModel):
 class NotCorrectlyHandled(BaseModel):
     """
     Description of `NotCorrectlyHandled`.
+
+    Attributes:
+        field_5: FIXME, this should be not be here
     """
     field_5: InternalModel4 | None = None
     """
