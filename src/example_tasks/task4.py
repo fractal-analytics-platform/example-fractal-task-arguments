@@ -10,10 +10,6 @@ from pydantic import validate_call
 class ModelAllOptional(BaseModel):
     """
     Description of `ModelAllOptional`.
-
-    Attributes:
-        x: FIXME, this should be not be here
-        y: FIXME, this should be not be here
     """
 
     x: int | None = None
@@ -29,10 +25,6 @@ class ModelAllOptional(BaseModel):
 class ModelSomeRequired(BaseModel):
     """
     Description of `ModelSomeRequired`.
-
-    Attributes:
-        x: FIXME, this should be not be here
-        y: FIXME, this should be not be here
     """
 
     x: int | None = None
@@ -48,10 +40,6 @@ class ModelSomeRequired(BaseModel):
 class InternalModel1(BaseModel):
     """
     Description of `InternalModel1`.
-
-    Attributes:
-        label: FIXME, this should be not be here
-        field: FIXME, this should be not be here
     """
 
     label: Literal["label1"] = "label1"
@@ -67,10 +55,6 @@ class InternalModel1(BaseModel):
 class InternalModel2(BaseModel):
     """
     Description of `InternalModel2`.
-
-    Attributes:
-        label: FIXME, this should be not be here
-        field: FIXME, this should be not be here
     """
 
     label: Literal["label2"] = "label2"
@@ -86,10 +70,6 @@ class InternalModel2(BaseModel):
 class InternalModel3(BaseModel):
     """
     Description of `InternalModel3`.
-
-    Attributes:
-        label: FIXME, this should be not be here
-        field: FIXME, this should be not be here
     """
 
     label: Literal["label3"] = "label3"
