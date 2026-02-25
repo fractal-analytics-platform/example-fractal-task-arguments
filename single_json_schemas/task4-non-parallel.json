@@ -6,15 +6,15 @@
         "label": {
           "const": "label1",
           "default": "label1",
+          "description": "Type hint: `Literal[\"label1\"] = \"label1\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME, this should be not be here"
+          "type": "string"
         },
         "field": {
           "default": 1,
+          "description": "Type hint: `int = 1`",
           "title": "Field",
-          "type": "integer",
-          "description": "FIXME, this should be not be here"
+          "type": "integer"
         }
       },
       "title": "InternalModel1",
@@ -26,14 +26,14 @@
         "label": {
           "const": "label2",
           "default": "label2",
+          "description": "Type hint: `Literal[\"label2\"] = \"label2\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME, this should be not be here"
+          "type": "string"
         },
         "field": {
+          "description": "Type hint: `str`",
           "title": "Field",
-          "type": "string",
-          "description": "FIXME, this should be not be here"
+          "type": "string"
         }
       },
       "required": [
@@ -48,14 +48,14 @@
         "label": {
           "const": "label3",
           "default": "label3",
+          "description": "Type hint: `Literal[\"label3\"] = \"label3\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME, this should be not be here"
+          "type": "string"
         },
         "field": {
+          "description": "Type hint: `bool`",
           "title": "Field",
-          "type": "boolean",
-          "description": "FIXME, this should be not be here"
+          "type": "boolean"
         }
       },
       "required": [
@@ -68,15 +68,15 @@
       "description": "Description of `ModelAllOptional`.",
       "properties": {
         "x": {
+          "description": "Type hint: `int | None = None`",
           "title": "X",
-          "type": "integer",
-          "description": "FIXME, this should be not be here"
+          "type": "integer"
         },
         "y": {
           "default": 1,
+          "description": "Type hint: `int = 1`",
           "title": "Y",
-          "type": "integer",
-          "description": "FIXME, this should be not be here"
+          "type": "integer"
         }
       },
       "title": "ModelAllOptional",
@@ -86,14 +86,14 @@
       "description": "Description of `ModelSomeRequired`.",
       "properties": {
         "x": {
+          "description": "Type hint: `int | None = None`",
           "title": "X",
-          "type": "integer",
-          "description": "FIXME, this should be not be here"
+          "type": "integer"
         },
         "y": {
+          "description": "Type hint: `str`",
           "title": "Y",
-          "type": "string",
-          "description": "FIXME, this should be not be here"
+          "type": "string"
         }
       },
       "required": [
