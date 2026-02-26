@@ -1,39 +1,39 @@
 {
   "$defs": {
     "InternalModel1": {
-      "description": "Description of InternalModel1.",
+      "description": "Description of `InternalModel1`.",
       "properties": {
         "label": {
           "const": "label1",
           "default": "label1",
+          "description": "Type hint: `Literal[\"label1\"] = \"label1\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME"
+          "type": "string"
         },
         "field": {
           "default": 1,
+          "description": "Type hint: `int = 1`",
           "title": "Field",
-          "type": "integer",
-          "description": "Missing description"
+          "type": "integer"
         }
       },
       "title": "InternalModel1",
       "type": "object"
     },
     "InternalModel2": {
-      "description": "Description of InternalModel2.",
+      "description": "Description of `InternalModel2`.",
       "properties": {
         "label": {
           "const": "label2",
           "default": "label2",
+          "description": "Type hint: `Literal[\"label2\"] = \"label2\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME"
+          "type": "string"
         },
         "field": {
+          "description": "Type hint: `str`",
           "title": "Field",
-          "type": "string",
-          "description": "Missing description"
+          "type": "string"
         }
       },
       "required": [
@@ -43,19 +43,19 @@
       "type": "object"
     },
     "InternalModel3": {
-      "description": "Description of InternalModel3.",
+      "description": "Description of `InternalModel3`.",
       "properties": {
         "label": {
           "const": "label3",
           "default": "label3",
+          "description": "Type hint: `Literal[\"label3\"] = \"label3\"`",
           "title": "Label",
-          "type": "string",
-          "description": "xxx"
+          "type": "string"
         },
         "field": {
+          "description": "Type hint: `bool`",
           "title": "Field",
-          "type": "boolean",
-          "description": "yyy"
+          "type": "boolean"
         }
       },
       "required": [
@@ -65,35 +65,35 @@
       "type": "object"
     },
     "ModelAllOptional": {
-      "description": "Short description of `ModelAllOptional`.",
+      "description": "Description of `ModelAllOptional`.",
       "properties": {
         "x": {
+          "description": "Type hint: `int | None = None`",
           "title": "X",
-          "type": "integer",
-          "description": "FIXME"
+          "type": "integer"
         },
         "y": {
           "default": 1,
+          "description": "Type hint: `int = 1`",
           "title": "Y",
-          "type": "integer",
-          "description": "FIXME"
+          "type": "integer"
         }
       },
       "title": "ModelAllOptional",
       "type": "object"
     },
     "ModelSomeRequired": {
-      "description": "Short description of `ModelSomeRequired`.",
+      "description": "Description of `ModelSomeRequired`.",
       "properties": {
         "x": {
+          "description": "Type hint: `int | None = None`",
           "title": "X",
-          "type": "integer",
-          "description": "FIXME"
+          "type": "integer"
         },
         "y": {
+          "description": "Type hint: `str`",
           "title": "Y",
-          "type": "string",
-          "description": "FIXME"
+          "type": "string"
         }
       },
       "required": [
@@ -121,7 +121,7 @@
     "pydantic_1": {
       "$ref": "#/$defs/ModelAllOptional",
       "title": "Pydantic 1",
-      "description": "Example of a Pydantic model with no required field."
+      "description": "Type hint `ModelAllOptional`"
     },
     "pydantic_2": {
       "$ref": "#/$defs/ModelAllOptional",
@@ -130,7 +130,7 @@
         "y": 1
       },
       "title": "Pydantic 2",
-      "description": "Example of a Pydantic model with no required field, with a default value."
+      "description": "Type hint `ModelAllOptional = ModelAllOptional()`"
     },
     "pydantic_3": {
       "$ref": "#/$defs/ModelAllOptional",
@@ -139,12 +139,12 @@
         "y": 1
       },
       "title": "Pydantic 3",
-      "description": "Example of a Pydantic model with no required field, with a default factory."
+      "description": "Type hint `ModelAllOptional = Field(default_factory=ModelAllOptional)`"
     },
     "pydantic_4": {
       "$ref": "#/$defs/ModelSomeRequired",
       "title": "Pydantic 4",
-      "description": "Example of a Pydantic model with some required field."
+      "description": "Type hint `ModelSomeRequired`"
     },
     "tagged_union": {
       "default": {
@@ -171,7 +171,7 @@
         }
       ],
       "title": "Tagged Union",
-      "description": "Example of a top-level tagged union, with a default value."
+      "description": "Type hint `TaggedUnion = InternalModel1()`"
     },
     "nested_tagged_union": {
       "default": [],
@@ -198,7 +198,7 @@
       },
       "title": "Nested Tagged Union",
       "type": "array",
-      "description": "Example of a nested tagged union, with a default value."
+      "description": "Type hint `list[TaggedUnion] = Field(default_factory=list)`"
     }
   },
   "required": [

@@ -1,48 +1,48 @@
 {
   "$defs": {
     "EnumDropdown": {
+      "description": "Description of `EnumDropdown`",
       "enum": [
         "Value 1",
         "Value 2"
       ],
       "title": "EnumDropdown",
-      "type": "string",
-      "description": "Missing description for EnumDropdown."
+      "type": "string"
     },
     "InternalModel1": {
-      "description": "Description of InternalModel1.",
+      "description": "Description of `InternalModel1`.",
       "properties": {
         "label": {
           "const": "label1",
           "default": "label1",
+          "description": "Type hint: `Literal[\"label1\"] = \"label1\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME"
+          "type": "string"
         },
         "field": {
           "default": 1,
+          "description": "Type hint: `int = 1`",
           "title": "Field",
-          "type": "integer",
-          "description": "Missing description"
+          "type": "integer"
         }
       },
       "title": "InternalModel1",
       "type": "object"
     },
     "InternalModel2": {
-      "description": "Description of InternalModel2.",
+      "description": "Description of `InternalModel2`.",
       "properties": {
         "label": {
           "const": "label2",
           "default": "label2",
+          "description": "Type hint: `Literal[\"label2\"] = \"label2\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME"
+          "type": "string"
         },
         "field": {
+          "description": "Type hint: `str`",
           "title": "Field",
-          "type": "string",
-          "description": "Missing description"
+          "type": "string"
         }
       },
       "required": [
@@ -52,19 +52,19 @@
       "type": "object"
     },
     "InternalModel3": {
-      "description": "Description of InternalModel3.",
+      "description": "Description of `InternalModel3`.",
       "properties": {
         "label": {
           "const": "label3",
           "default": "label3",
+          "description": "Type hint: `Literal[\"label3\"] = \"label3\"`",
           "title": "Label",
-          "type": "string",
-          "description": "xxx"
+          "type": "string"
         },
         "field": {
+          "description": "Type hint: `bool`",
           "title": "Field",
-          "type": "boolean",
-          "description": "yyy"
+          "type": "boolean"
         }
       },
       "required": [
@@ -79,36 +79,37 @@
         "label": {
           "const": "label4",
           "default": "label4",
+          "description": "Type hint: `Literal[\"label5\"] = \"label5\"`",
           "title": "Label",
-          "type": "string",
-          "description": "FIXME"
+          "type": "string"
         },
         "field": {
           "default": 1,
+          "description": "Type hint: `int = 1`",
           "title": "Field",
-          "type": "integer",
-          "description": "Missing description"
+          "type": "integer"
         }
       },
       "title": "InternalModel4",
       "type": "object"
     },
     "NestedModel": {
-      "description": "Description of NestedModel.",
+      "description": "Description of `NestedModel`.",
       "properties": {
         "field_1": {
           "default": "default value",
+          "description": "Type hint: `str = \"default_value\"`",
           "title": "Field 1",
-          "type": "string",
-          "description": "xxx"
+          "type": "string"
         },
         "field_2": {
           "default": 1,
+          "description": "Type hint: `int = 1`",
           "title": "Field 2",
-          "type": "integer",
-          "description": "yyy"
+          "type": "integer"
         },
         "field_3": {
+          "description": "Type hint: `list[NestedTaggedUnion] | None = Field(default=None)`",
           "items": {
             "discriminator": {
               "mapping": {
@@ -135,11 +136,11 @@
             ]
           },
           "title": "Field 3",
-          "type": "array",
-          "description": "list of pydantic models union with none. When the list is empty the field will be set to none."
+          "type": "array"
         },
         "field_4": {
           "default": [],
+          "description": "Type hint `list[NestedTaggedUnion] = Field(default_factory=list)`",
           "items": {
             "discriminator": {
               "mapping": {
@@ -166,8 +167,7 @@
             ]
           },
           "title": "Field 4",
-          "type": "array",
-          "description": "same as field_3 but with default value set to an empty list instead of none."
+          "type": "array"
         }
       },
       "title": "NestedModel",
@@ -193,14 +193,14 @@
       "default": "test",
       "title": "Custom title 2",
       "type": "string",
-      "description": "example of a way to add a custom title to the schema of an argument."
+      "description": "Type hint `str = Field(default=\"test\",title=\"Custom title 2\")`"
     },
     "regex_arg": {
       "default": "test",
       "pattern": "^[a-zA-Z0-9_]+$",
       "title": "Regex Arg",
       "type": "string",
-      "description": "example of a way to add a regex pattern to the schema of an argument."
+      "description": "Type hint `str = Field(default=\"test\", pattern=r\"^[a-zA-Z0-9_]+$\")`"
     },
     "list_arg": {
       "default": [
@@ -216,7 +216,7 @@
       "title": "List Arg",
       "type": "array",
       "uniqueItems": true,
-      "description": "example of a way to add a list with minimum and maximum length constraints to the schema of an argument."
+      "description": "Type hint `list[int] = Field(min_length=0, max_length=10, json_schema_extra={\"uniqueItems\": True}, default_factory=lambda: [1, 2, 3])`"
     },
     "float_arg": {
       "default": 50.0,
@@ -225,7 +225,7 @@
       "multipleOf": 5.0,
       "title": "Float Arg",
       "type": "number",
-      "description": "example of a way to add a float with minimum and maximum value constraints to the schema of an argument."
+      "description": "Type hint `float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0)`"
     },
     "nested_tagged_union_arg": {
       "discriminator": {
@@ -252,12 +252,12 @@
         }
       ],
       "title": "Nested Tagged Union Arg",
-      "description": "example of a way to add a nested tagged union argument (usefull to extend tagged unions defined in other tasks)."
+      "description": "Type hint `NestedTaggedUnion`"
     },
     "enum_arg": {
       "$ref": "#/$defs/EnumDropdown",
       "title": "Enum Arg",
-      "description": "menu argument using StrEnum, which will be rendered as a dropdown in the UI."
+      "description": "Type hint `EnumDropdown | None = None`"
     },
     "literal_arg": {
       "default": "option1",
@@ -268,7 +268,7 @@
       ],
       "title": "Literal Arg",
       "type": "string",
-      "description": "menu argument using Literal, which will be rendered as a dropdown in the UI."
+      "description": "Type hint `Literal[\"option1\", \"option2\", \"option3\"] = \"option1\"`"
     },
     "nested_model_arg": {
       "$ref": "#/$defs/NestedModel",
@@ -279,12 +279,17 @@
         "field_4": []
       },
       "title": "Nested Model Arg",
-      "description": "example of a way to add a nested Pydantic model as an argument."
+      "description": "Type hint `NestedModel = NestedModel()`"
     },
     "model_or_none": {
       "$ref": "#/$defs/InternalModel4",
       "title": "Model Or None",
-      "description": "example of a field that is currently not correctly handled by the UI."
+      "description": "Type hint `InternalModel4 | None = None`"
+    },
+    "string_or_none": {
+      "title": "String Or None",
+      "type": "string",
+      "description": "Type hint `str | None = Field(default=None)`"
     },
     "factory_args": {
       "default": [
@@ -297,7 +302,7 @@
       },
       "title": "Factory Args",
       "type": "array",
-      "description": "example of a field with a default factory, which is not evaluated during the build process."
+      "description": "Type hint `list[int] = Field(default_factory=lambda: [1, 2, 3])`"
     }
   },
   "required": [
