@@ -1,11 +1,11 @@
 {
   "$defs": {
-    "ModelWithCoupledFields": {
+    "ModelIfThenElse": {
       "additionalProperties": false,
-      "description": "Model demonstrating if/then/else coupled field constraints in JSON schema.",
+      "description": "Model demonstrating if/then/else coupled field constraints.",
       "else": {
         "properties": {
-          "field_1_dependent": {
+          "dependent_parameter": {
             "const": 0,
             "type": "number"
           }
@@ -13,173 +13,35 @@
       },
       "if": {
         "properties": {
-          "field_1": {
+          "control_parameter": {
             "const": true,
             "type": "boolean"
           }
         }
       },
       "properties": {
-        "field_1": {
+        "control_parameter": {
           "default": false,
-          "title": "Field 1",
-          "type": "boolean",
-          "description": "A boolean toggle controlling the constraint on field_1_dependent."
+          "description": "A boolean toggle controlling the constraint on `dependent_parameter`.",
+          "title": "Control Parameter",
+          "type": "boolean"
         },
-        "field_1_dependent": {
+        "dependent_parameter": {
           "default": 1,
-          "description": "This field is dependent on field_1. If field_1 is False, this field should be set to 0. If field_1 is True, this field should be set to a positive integer.",
-          "title": "Field 1 Dependent",
+          "description": "Dependent on `control_parameter`. Must be 0 when control_parameter is False, and a positive integer when control_parameter is True.",
+          "title": "Dependent Parameter",
           "type": "integer"
         }
       },
       "then": {
         "properties": {
-          "field_1_dependent": {
+          "dependent_parameter": {
             "minimum": 1,
             "type": "number"
           }
         }
       },
-      "title": "ModelWithCoupledFields",
-      "type": "object"
-    },
-    "ModelWithDependentRequired": {
-      "additionalProperties": false,
-      "dependentRequired": {
-        "enable_proxy": [
-          "proxy_url",
-          "proxy_port"
-        ]
-      },
-      "description": "Model demonstrating dependentRequired constraints in JSON schema.",
-      "properties": {
-        "enable_proxy": {
-          "default": false,
-          "title": "Enable Proxy",
-          "type": "boolean",
-          "description": "Whether to enable the proxy. When set, proxy_url and proxy_port are required."
-        },
-        "proxy_url": {
-          "default": "",
-          "description": "URL of the proxy server.",
-          "title": "Proxy Url",
-          "type": "string"
-        },
-        "proxy_port": {
-          "default": 8080,
-          "description": "Port of the proxy server.",
-          "maximum": 65535,
-          "minimum": 1,
-          "title": "Proxy Port",
-          "type": "integer"
-        }
-      },
-      "title": "ModelWithDependentRequired",
-      "type": "object"
-    },
-    "ModelWithMultipleConditions": {
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "mode": {
-                "const": "advanced"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "advanced_config"
-            ]
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "use_cache": {
-                "const": true,
-                "type": "boolean"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "cache_size": {
-                "minimum": 1,
-                "type": "number"
-              }
-            }
-          }
-        }
-      ],
-      "description": "Model demonstrating multiple independent coupled conditions via allOf in JSON schema.",
-      "properties": {
-        "mode": {
-          "default": "simple",
-          "enum": [
-            "simple",
-            "advanced"
-          ],
-          "title": "Mode",
-          "type": "string",
-          "description": "Processing mode. When set to 'advanced', advanced_config is required."
-        },
-        "advanced_config": {
-          "default": "",
-          "description": "Required when mode is 'advanced'.",
-          "title": "Advanced Config",
-          "type": "string"
-        },
-        "use_cache": {
-          "default": false,
-          "title": "Use Cache",
-          "type": "boolean",
-          "description": "Whether to enable caching. When True, cache_size must be >= 1."
-        },
-        "cache_size": {
-          "default": 0,
-          "description": "Size of the cache in MB. Must be >= 1 when use_cache is True.",
-          "title": "Cache Size",
-          "type": "integer"
-        }
-      },
-      "title": "ModelWithMultipleConditions",
-      "type": "object"
-    },
-    "ModelWithMutuallyExclusiveFields": {
-      "additionalProperties": false,
-      "description": "Model demonstrating mutually exclusive optional fields in JSON schema.",
-      "not": {
-        "allOf": [
-          {
-            "required": [
-              "output_path"
-            ]
-          },
-          {
-            "required": [
-              "output_url"
-            ]
-          }
-        ]
-      },
-      "properties": {
-        "output_path": {
-          "default": "",
-          "description": "Local path for output. Cannot be set together with output_url.",
-          "title": "Output Path",
-          "type": "string"
-        },
-        "output_url": {
-          "default": "",
-          "description": "Remote URL for output. Cannot be set together with output_path.",
-          "title": "Output Url",
-          "type": "string"
-        }
-      },
-      "title": "ModelWithMutuallyExclusiveFields",
+      "title": "ModelIfThenElse",
       "type": "object"
     }
   },
@@ -198,49 +60,16 @@
       "type": "string",
       "description": "Output directory for Zarr data."
     },
-    "model_with_coupled_fields": {
-      "$ref": "#/$defs/ModelWithCoupledFields",
-      "default": {
-        "field_1": false,
-        "field_1_dependent": 1
-      },
-      "title": "Model With Coupled Fields",
-      "description": "if/then/else \u2014 field_1_dependent is constrained based on the value of field_1."
-    },
-    "model_with_dependent_required": {
-      "$ref": "#/$defs/ModelWithDependentRequired",
-      "default": {
-        "enable_proxy": false,
-        "proxy_url": "",
-        "proxy_port": 8080
-      },
-      "title": "Model With Dependent Required",
-      "description": "dependentRequired \u2014 proxy_url and proxy_port become required when enable_proxy is present."
-    },
-    "model_with_multiple_conditions": {
-      "$ref": "#/$defs/ModelWithMultipleConditions",
-      "default": {
-        "mode": "simple",
-        "advanced_config": "",
-        "use_cache": false,
-        "cache_size": 0
-      },
-      "title": "Model With Multiple Conditions",
-      "description": "allOf with multiple if/then \u2014 two independent coupled conditions applied simultaneously."
-    },
-    "model_with_mutually_exclusive_fields": {
-      "$ref": "#/$defs/ModelWithMutuallyExclusiveFields",
-      "default": {
-        "output_path": "",
-        "output_url": ""
-      },
-      "title": "Model With Mutually Exclusive Fields",
-      "description": "not + allOf \u2014 output_path and output_url cannot both be set at the same time."
+    "arg_if_then_else": {
+      "$ref": "#/$defs/ModelIfThenElse",
+      "title": "Arg If Then Else",
+      "description": "Type hint `ModelIfThenElse`"
     }
   },
   "required": [
     "zarr_urls",
-    "zarr_dir"
+    "zarr_dir",
+    "arg_if_then_else"
   ],
   "type": "object",
   "title": "Task6"
