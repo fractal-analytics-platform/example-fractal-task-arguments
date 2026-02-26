@@ -7,6 +7,7 @@ from pydantic import Field
 from pydantic import validate_call
 from example_tasks.task4 import TaggedUnion
 
+
 class InternalModel4(BaseModel):
     """
     Description of InternalModel4.
@@ -20,25 +21,28 @@ class InternalModel4(BaseModel):
     """
     Type hint: `int = 1`
     """
-    
-    
+
+
 NestedTaggedUnion = Annotated[
     TaggedUnion | InternalModel4,
     Field(discriminator="label"),
 ]
 
+
 class EnumDropdown(StrEnum):
     """
     Description of `EnumDropdown`
     """
+
     name1 = "Value 1"
     name2 = "Value 2"
-    
-    
+
+
 class NestedModel(BaseModel):
     """
     Description of `NestedModel`.
     """
+
     field_1: str = "default value"
     """
     Type hint: `str = "default_value"`
@@ -55,16 +59,18 @@ class NestedModel(BaseModel):
     """
     Type hint `list[NestedTaggedUnion] = Field(default_factory=list)`
     """
-    
+
+
 class NotCorrectlyHandled(BaseModel):
     """
     Description of `NotCorrectlyHandled`.
     """
+
     field_5: InternalModel4 | None = None
     """
     Type hint: `InternalModel4 | None = None`
     """
-    
+
 
 @validate_call
 def task5(
@@ -73,9 +79,14 @@ def task5(
     zarr_urls: list[str],
     zarr_dir: str,
     # Task-specific arguments
-    custom_title: str = Field(default="test",title="Custom title 2"),
+    custom_title: str = Field(default="test", title="Custom title 2"),
     regex_arg: str = Field(default="test", pattern=r"^[a-zA-Z0-9_]+$"),
-    list_arg: list[int] = Field(min_length=0, max_length=10, json_schema_extra={"uniqueItems": True}, default_factory=lambda: [1, 2, 3]),
+    list_arg: list[int] = Field(
+        min_length=0,
+        max_length=10,
+        json_schema_extra={"uniqueItems": True},
+        default_factory=lambda: [1, 2, 3],
+    ),
     float_arg: float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0),
     nested_tagged_union_arg: NestedTaggedUnion,
     enum_arg: EnumDropdown | None = None,

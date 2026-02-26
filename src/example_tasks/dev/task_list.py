@@ -18,5 +18,5 @@ INPUT_MODELS = [
     ("example_tasks", "task4.py", "InternalModel2"),
     ("example_tasks", "task4.py", "InternalModel3"),
     ("example_tasks", "task5.py", "InternalModel4"),
-    ("example_tasks", "task5.py", "NestedModel"),    
+    ("example_tasks", "task5.py", "NestedModel"),
 ]

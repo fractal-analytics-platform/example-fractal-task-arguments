@@ -14,7 +14,7 @@ This repository includes a mock package of Fractal tasks, which is meant to used
 uv venv
 uv sync
 ```
-2. Generate the manifest via 
+2. Generate the manifest via
 ```
 uv run fractal-manifest create --package example-tasks
 ```

@@ -82,7 +82,6 @@ class InternalModel3(BaseModel):
     """
 
 
-
 TaggedUnion = Annotated[
     InternalModel1 | InternalModel2 | InternalModel3,
     Field(discriminator="label"),
@@ -115,6 +114,7 @@ class MyEnum(Enum):
     """
     Description of `MyEnum`
     """
+
     name1 = "Value 1"
     name2 = "Value 2"
 
