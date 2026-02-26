@@ -1,17 +1,19 @@
 from pydantic import validate_call
+from pydantic import Field
 
 
 @validate_call
 def task2(
+    *,
     # Fractal-specific arguments
     zarr_urls: list[str],
     zarr_dir: str,
     # Task-specific arguments
-    *,
-    list_arg: list[int],
-    tuple_arg: tuple[int, int, int],
-    optional_list_arg: list[int] | None = None,
-    optional_tuple_arg: tuple[int, int, int] | None = None,
+    array: list[int],
+    array_with_default: list[int] = Field(default_factory=list),
+    array_or_None: list[int] | None,
+    array_or_None_with_default: list[int] | None = None,
+    my_tuple: tuple[int, int, int],
 ):
     """
     Short description of task2
@@ -20,9 +22,10 @@ def task2(
     mock task for testing.
 
     Args:
-        list_arg: Type hint `list[int]`
-        tuple_arg: Type hint `tuple[int, int, int]`
-        optional_list_arg: Type hint `list[int] | None = None`
-        optional_tuple_arg: Type hint `tuple[int, int, int] | None = None`
+        array: Type hint `list[int]`
+        array_with_default: Type hint `list[int] = Field(default_factory=list)`
+        array_or_None: Type hint `list[int] | None`
+        array_or_None_with_default: Type hint `list[int] | None = None`
+        my_tuple: Type hint `tuple[int, int, int]`
     """
     pass
