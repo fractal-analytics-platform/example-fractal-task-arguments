@@ -139,9 +139,9 @@ def task6(
     # Task-specific arguments
     arg_if_then_else: ModelIfThenElse,
     # FIXME not supported in fractal-web yet:
-    # arg_dependent_required: ModelDependentRequired,
-    # arg_multiple_if_then: ModelWithMultipleIfThen,
-    # arg_mutually_exclusive: ModelMutuallyExclusive,
+    arg_dependent_required: ModelDependentRequired,
+    arg_multiple_if_then: ModelWithMultipleIfThen,
+    arg_mutually_exclusive: ModelMutuallyExclusive,
 ):
     """
     Short description of task6
