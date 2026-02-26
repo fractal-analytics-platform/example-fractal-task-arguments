@@ -43,6 +43,7 @@ dependencies = [
     { name = "docstring-parser" },
     { name = "pydantic" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/f1/a4/a359f7131717a602122ff38897e3fe3d96365e0ae3d30cb041d19af07973/fractal_task_tools-0.4.0a3.tar.gz", hash = "sha256:15e79855b7f05dc7db67716f64edf38dae06a5f917c2083d21b3f108a99d306d", size = 29619, upload-time = "2026-02-19T09:41:16.007Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/5c/77/f8111abadbae5f3a11f85f0edb2ebe4f43bad3ca5edbc54ae3d97048af1f/fractal_task_tools-0.4.0a3-py3-none-any.whl", hash = "sha256:ce43f5451dee6d95ec966becf03b2cf2a09d81a8999ce34894a12029ed226a47", size = 25770, upload-time = "2026-02-19T09:41:14.139Z" },
 ]

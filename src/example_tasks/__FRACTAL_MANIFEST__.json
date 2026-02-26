@@ -823,14 +823,16 @@
             "else": {
               "properties": {
                 "field_1_dependent": {
-                  "const": 0
+                  "const": 0,
+                  "type": "number"
                 }
               }
             },
             "if": {
               "properties": {
                 "field_1": {
-                  "const": true
+                  "const": true,
+                  "type": "boolean"
                 }
               }
             },
@@ -851,7 +853,8 @@
             "then": {
               "properties": {
                 "field_1_dependent": {
-                  "minimum": 1
+                  "minimum": 1,
+                  "type": "number"
                 }
               }
             },
@@ -913,14 +916,16 @@
                 "if": {
                   "properties": {
                     "use_cache": {
-                      "const": true
+                      "const": true,
+                      "type": "boolean"
                     }
                   }
                 },
                 "then": {
                   "properties": {
                     "cache_size": {
-                      "minimum": 1
+                      "minimum": 1,
+                      "type": "number"
                     }
                   }
                 }

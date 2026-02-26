@@ -1,4 +1,3 @@
-
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict
@@ -21,9 +20,13 @@ class ModelWithCoupledFields(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
         json_schema_extra={
-            "if": {"properties": {"field_1": {"const": True}}},
-            "then": {"properties": {"field_1_dependent": {"minimum": 1}}},
-            "else": {"properties": {"field_1_dependent": {"const": 0}}},
+            "if": {"properties": {"field_1": {"const": True, "type": "boolean"}}},
+            "then": {
+                "properties": {"field_1_dependent": {"minimum": 1, "type": "number"}}
+            },
+            "else": {
+                "properties": {"field_1_dependent": {"const": 0, "type": "number"}}
+            },
         },
     )
 
@@ -89,8 +92,8 @@ class ModelWithMultipleConditions(BaseModel):
                     "then": {"required": ["advanced_config"]},
                 },
                 {
-                    "if": {"properties": {"use_cache": {"const": True}}},
-                    "then": {"properties": {"cache_size": {"minimum": 1}}},
+                    "if": {"properties": {"use_cache": {"const": True,"type": "boolean"}}},
+                    "then": {"properties": {"cache_size": {"minimum": 1,"type": "number"}}},
                 },
             ]
         },
