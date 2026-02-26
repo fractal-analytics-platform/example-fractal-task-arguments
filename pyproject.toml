@@ -5,7 +5,7 @@ description = "Fake tasks package"
 readme = "README.md"
 authors = [{ name = "Your Name", email = "first.last@example.com" }]
 requires-python = ">=3.11,<3.15"
-dependencies = ["pydantic>=2.11.0", "fractal-task-tools==0.5.0a2"]
+dependencies = ["pydantic>=2.11.0", "fractal-task-tools==0.5.0a3"]
 
 [build-system]
 requires = ["setuptools >= 80.0"]
