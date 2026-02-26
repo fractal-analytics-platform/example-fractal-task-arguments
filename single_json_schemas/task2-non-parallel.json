@@ -14,41 +14,40 @@
       "type": "string",
       "description": "Missing description"
     },
-    "list_arg": {
+    "array": {
       "items": {
         "type": "integer"
       },
-      "title": "List Arg",
+      "title": "Array",
       "type": "array",
       "description": "Type hint `list[int]`"
     },
-    "tuple_arg": {
-      "maxItems": 3,
-      "minItems": 3,
-      "prefixItems": [
-        {
-          "type": "integer"
-        },
-        {
-          "type": "integer"
-        },
-        {
-          "type": "integer"
-        }
-      ],
-      "title": "Tuple Arg",
-      "type": "array",
-      "description": "Type hint `tuple[int, int, int]`"
-    },
-    "optional_list_arg": {
+    "array_with_default": {
+      "default": [],
       "items": {
         "type": "integer"
       },
-      "title": "Optional List Arg",
+      "title": "Array With Default",
+      "type": "array",
+      "description": "Type hint `list[int] = Field(default_factory=list)`"
+    },
+    "array_or_None": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Array Or None",
+      "type": "array",
+      "description": "Type hint `list[int] | None`"
+    },
+    "array_or_None_with_default": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Array Or None With Default",
       "type": "array",
       "description": "Type hint `list[int] | None = None`"
     },
-    "optional_tuple_arg": {
+    "my_tuple": {
       "maxItems": 3,
       "minItems": 3,
       "prefixItems": [
@@ -62,16 +61,17 @@
           "type": "integer"
         }
       ],
-      "title": "Optional Tuple Arg",
+      "title": "My Tuple",
       "type": "array",
-      "description": "Type hint `tuple[int, int, int] | None = None`"
+      "description": "Type hint `tuple[int, int, int]`"
     }
   },
   "required": [
     "zarr_urls",
     "zarr_dir",
-    "list_arg",
-    "tuple_arg"
+    "array",
+    "array_or_None",
+    "my_tuple"
   ],
   "type": "object",
   "title": "Task2"
