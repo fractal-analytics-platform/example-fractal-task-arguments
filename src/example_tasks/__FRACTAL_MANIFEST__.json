@@ -902,6 +902,88 @@
         "title": "Task5"
       },
       "docs_info": "## task5\nShort description of task5\n"
+    },
+    {
+      "name": "task6",
+      "type": "non_parallel",
+      "executable_non_parallel": "task6.py",
+      "args_schema_non_parallel": {
+        "$defs": {
+          "ModelIfThenElse": {
+            "additionalProperties": false,
+            "description": "Model demonstrating if/then/else coupled field constraints.",
+            "else": {
+              "properties": {
+                "dependent_parameter": {
+                  "const": 0,
+                  "type": "number"
+                }
+              }
+            },
+            "if": {
+              "properties": {
+                "control_parameter": {
+                  "const": true,
+                  "type": "boolean"
+                }
+              }
+            },
+            "properties": {
+              "control_parameter": {
+                "default": false,
+                "description": "A boolean toggle controlling the constraint on `dependent_parameter`.",
+                "title": "Control Parameter",
+                "type": "boolean"
+              },
+              "dependent_parameter": {
+                "default": 1,
+                "description": "Dependent on `control_parameter`. Must be 0 when control_parameter is False, and a positive integer when control_parameter is True.",
+                "title": "Dependent Parameter",
+                "type": "integer"
+              }
+            },
+            "then": {
+              "properties": {
+                "dependent_parameter": {
+                  "minimum": 1,
+                  "type": "number"
+                }
+              }
+            },
+            "title": "ModelIfThenElse",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "zarr_urls": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Zarr Urls",
+            "type": "array",
+            "description": "List of input Zarr URLs."
+          },
+          "zarr_dir": {
+            "title": "Zarr Dir",
+            "type": "string",
+            "description": "Output directory for Zarr data."
+          },
+          "arg_if_then_else": {
+            "$ref": "#/$defs/ModelIfThenElse",
+            "title": "Arg If Then Else",
+            "description": "Type hint `ModelIfThenElse`"
+          }
+        },
+        "required": [
+          "zarr_urls",
+          "zarr_dir",
+          "arg_if_then_else"
+        ],
+        "type": "object",
+        "title": "Task6"
+      },
+      "docs_info": "## task6\nShort description of task6\n\nLong description of this wonderful task that actually only represents a\nmock task for testing.\n"
     }
   ],
   "has_args_schemas": true,
