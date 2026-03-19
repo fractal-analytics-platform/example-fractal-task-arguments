@@ -89,6 +89,10 @@ TaggedUnion = Annotated[
 
 
 class Model2(BaseModel):
+    """
+    Description of `Model2`.
+    """
+
     label: Literal["label2"] = "label2"
     """
     Type hint: `Literal["label2"] = "label2"`
@@ -100,6 +104,10 @@ class Model2(BaseModel):
 
 
 class Model3(BaseModel):
+    """
+    Description of `Model3`.
+    """
+
     label: Literal["label3"] = "label3"
     """
     Type hint: `Literal["label3"] = "label3"`
