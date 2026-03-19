@@ -35,6 +35,9 @@ class ModelIfThenElse(BaseModel):
             "control_parameter is True."
         ),
     )
+    """
+    An attribute with behavior that depends on `control_parameter`.
+    """
 
 
 class ModelDependentRequired(BaseModel):
@@ -50,6 +53,10 @@ class ModelDependentRequired(BaseModel):
     )
 
     include_advanced: bool = False
+    """
+    Whether to include advanced attributes.
+    """
+
     advanced_1: str = "default"
     """
     Advanced 1 description.
