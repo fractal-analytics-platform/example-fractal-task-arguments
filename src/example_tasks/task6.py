@@ -47,14 +47,14 @@ class ModelDependentRequired(BaseModel):
         extra="forbid",
         json_schema_extra={
             "dependentRequired": {
-                "include_advanced": ["advanced_1", "advanced_2"],
+                "advanced_path": ["advanced_1", "advanced_2"],
             }
         },
     )
 
-    include_advanced: bool = False
+    advanced_path: str | None = None
     """
-    Whether to include advanced attributes.
+    When included, advanced attributes must be set.
     """
 
     advanced_1: str = "default"
@@ -62,7 +62,7 @@ class ModelDependentRequired(BaseModel):
     Advanced 1 description.
     """
 
-    advanced_2: int
+    advanced_2: int | None = None
     """
     Advanced 1 description.
     """
@@ -79,7 +79,10 @@ class ModelWithMultipleIfThen(BaseModel):
                     "if": {
                         "properties": {"mode": {"const": "advanced", "type": "string"}}
                     },
-                    "then": {"required": ["advanced_config"]},
+                    "then": {
+                        "properties": {"advanced_config": {"type": "string"}},
+                        "required": ["advanced_config"]
+                    },
                 },
                 {
                     "if": {
@@ -97,7 +100,7 @@ class ModelWithMultipleIfThen(BaseModel):
     """
     Processing mode. When set to 'advanced', advanced_config is required.
     """
-    advanced_config: str
+    advanced_config: str | None = None
     """
     Configuration string required when mode is 'advanced'.
     """
@@ -119,19 +122,25 @@ class ModelMutuallyExclusive(BaseModel):
         json_schema_extra={
             "not": {
                 "allOf": [
-                    {"required": ["output_path"]},
-                    {"required": ["output_url"]},
+                    {
+                        "properties": {"output_path": {"type": "string"}},
+                        "required": ["output_path"]
+                    },
+                    {
+                        "properties": {"output_url": {"type": "string"}},
+                        "required": ["output_url"]
+                    },
                 ]
             }
         },
     )
 
-    output_path: str
+    output_path: str | None = None
     """
     Local path for output. Cannot be set together with output_url."
     """
 
-    output_url: str
+    output_url: str | None = None
     """
     Remote URL for output. Cannot be set together with output_path.
     """
@@ -145,10 +154,9 @@ def task6(
     zarr_dir: str,
     # Task-specific arguments
     arg_if_then_else: ModelIfThenElse,
-    # FIXME not supported in fractal-web yet:
-    # arg_dependent_required: ModelDependentRequired,
-    # arg_multiple_if_then: ModelWithMultipleIfThen,
-    # arg_mutually_exclusive: ModelMutuallyExclusive,
+    arg_dependent_required: ModelDependentRequired,
+    arg_multiple_if_then: ModelWithMultipleIfThen,
+    arg_mutually_exclusive: ModelMutuallyExclusive,
 ):
     """
     Short description of task6
