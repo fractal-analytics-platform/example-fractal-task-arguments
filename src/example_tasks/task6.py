@@ -81,7 +81,7 @@ class ModelWithMultipleIfThen(BaseModel):
                     },
                     "then": {
                         "properties": {"advanced_config": {"type": "string"}},
-                        "required": ["advanced_config"]
+                        "required": ["advanced_config"],
                     },
                 },
                 {
@@ -114,25 +114,34 @@ class ModelWithMultipleIfThen(BaseModel):
     """
 
 
+def _get_jschema_extra_mutually_exclusive(
+    *,
+    name1: str,
+    name2: str,
+    type1: str,
+    type2: str,
+) -> dict:
+    return {
+        "not": {
+            "allOf": [
+                {"properties": {name1: {"type": type1}}, "required": [name1]},
+                {"properties": {name2: {"type": type2}}, "required": [name2]},
+            ]
+        }
+    }
+
+
 class ModelMutuallyExclusive(BaseModel):
     """Model demonstrating mutually exclusive optional fields in JSON schema."""
 
     model_config = ConfigDict(
         extra="forbid",
-        json_schema_extra={
-            "not": {
-                "allOf": [
-                    {
-                        "properties": {"output_path": {"type": "string"}},
-                        "required": ["output_path"]
-                    },
-                    {
-                        "properties": {"output_url": {"type": "string"}},
-                        "required": ["output_url"]
-                    },
-                ]
-            }
-        },
+        json_schema_extra=_get_jschema_extra_mutually_exclusive(
+            name1="output_path",
+            name2="output_url",
+            type1="string",
+            type2="string",
+        ),
     )
 
     output_path: str | None = None
