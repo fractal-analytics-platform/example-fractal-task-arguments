@@ -11,9 +11,17 @@
       "description": "Model demonstrating dependentRequired constraints.",
       "properties": {
         "advanced_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "description": "When included, advanced attributes must be set.",
-          "title": "Advanced Path",
-          "type": "string"
+          "title": "Advanced Path"
         },
         "advanced_1": {
           "default": "default",
@@ -22,9 +30,17 @@
           "type": "string"
         },
         "advanced_2": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "description": "Advanced 1 description.",
-          "title": "Advanced 2",
-          "type": "integer"
+          "title": "Advanced 2"
         }
       },
       "title": "ModelDependentRequired",
@@ -103,14 +119,30 @@
       },
       "properties": {
         "output_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "description": "Local path for output. Cannot be set together with output_url.\"",
-          "title": "Output Path",
-          "type": "string"
+          "title": "Output Path"
         },
         "output_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "description": "Remote URL for output. Cannot be set together with output_path.",
-          "title": "Output Url",
-          "type": "string"
+          "title": "Output Url"
         }
       },
       "title": "ModelMutuallyExclusive",
@@ -171,9 +203,17 @@
           "type": "string"
         },
         "advanced_config": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "description": "Configuration string required when mode is 'advanced'.",
-          "title": "Advanced Config",
-          "type": "string"
+          "title": "Advanced Config"
         },
         "use_cache": {
           "default": false,

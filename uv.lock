@@ -31,21 +31,21 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fractal-task-tools", specifier = "==0.5.0a3" },
+    { name = "fractal-task-tools", specifier = "==0.5.0a4" },
     { name = "pydantic", specifier = ">=2.11.0" },
 ]
 
 [[package]]
 name = "fractal-task-tools"
-version = "0.5.0a3"
+version = "0.5.0a4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "docstring-parser" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/58/28/a603bad5c9d0e774551f0c9b7894033fcffcd106abc7e364076ef286eea2/fractal_task_tools-0.5.0a3.tar.gz", hash = "sha256:cef9a692447088f36ec426e1d93c42f7271488ea63f278a8683d4b11aa5a134b", size = 30132, upload-time = "2026-02-26T12:40:51.168Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/80/8a/143d66d35081945b04f65464230997cf1e705f2aae528d4dc71173bf687f/fractal_task_tools-0.5.0a4.tar.gz", hash = "sha256:bf591e48905e74c863db1e18df5e35ab5c9a7ea859fb4964065479955f047fd9", size = 29459, upload-time = "2026-04-02T11:48:50.867Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ea/26/e20297cd4229653884b57868de2e3844458c86189b90417cfe94480d3769/fractal_task_tools-0.5.0a3-py3-none-any.whl", hash = "sha256:13da73b8197b6c58ebf34c6547821491fa74409b747b18958b2aeda73f3c73c2", size = 26173, upload-time = "2026-02-26T12:40:49.797Z" },
+    { url = "https://files.pythonhosted.org/packages/6b/33/a36e12d4dff8644795c94b17b55c66a2d9c6427a879eb12ef7ad171243e1/fractal_task_tools-0.5.0a4-py3-none-any.whl", hash = "sha256:0b9ada21a5690099fe00aff957abc4fa56873d5336a3f80db56b2b3c1e72f5af", size = 25484, upload-time = "2026-04-02T11:48:49.656Z" },
 ]
 
 [[package]]

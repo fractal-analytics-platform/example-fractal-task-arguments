@@ -8,7 +8,3 @@ TASK_LIST = [
     NonParallelTask(name="task5", executable="task5.py"),
     NonParallelTask(name="task6", executable="task6.py"),
 ]
-
-
-PACKAGE = "my-tasks"
-AUTHORS = "Your Name"
