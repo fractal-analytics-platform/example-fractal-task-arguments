@@ -51,7 +51,7 @@ def task1(
         float_2: Type hint `float = 1.23`
         enum_1: Type hint `MyEnum`
         enum_2: Type hint `MyEnum = MyEnum.name1`
-        literal_1 Type hint:` Type hint `Literal["a", "b", "c"]`
+        literal_1: Type hint:` Type hint `Literal["a", "b", "c"]`
         literal_2: Type hint `Literal["a", "b", "c"] = "a"`
     """
     pass

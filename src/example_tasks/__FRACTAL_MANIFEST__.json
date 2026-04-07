@@ -121,7 +121,7 @@
             ],
             "title": "Literal 1",
             "type": "string",
-            "description": "Missing description"
+            "description": "Type hint:` Type hint `Literal[\"a\", \"b\", \"c\"]`"
           },
           "literal_2": {
             "default": "a",
