@@ -6,8 +6,18 @@ from pydantic import validate_call
 
 
 class MyEnum(Enum):
+    """
+    Description of `MyEnum`.
+    """
+
     name1 = "Value 1"
+    """
+    Value 1
+    """
     name2 = "Value 2"
+    """
+    Value 2
+    """
 
 
 @validate_call

@@ -8,13 +8,13 @@
       "args_schema_non_parallel": {
         "$defs": {
           "MyEnum": {
+            "description": "Description of `MyEnum`.",
             "enum": [
               "Value 1",
               "Value 2"
             ],
             "title": "MyEnum",
-            "type": "string",
-            "description": "Missing description for MyEnum."
+            "type": "string"
           }
         },
         "additionalProperties": false,
