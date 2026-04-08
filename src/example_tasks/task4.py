@@ -76,9 +76,9 @@ class InternalModel3(BaseModel):
     """
     Type hint: `Literal["label3"] = "label3"`
     """
-    field: bool
+    field: bool = False
     """
-    Type hint: `bool`
+    Type hint: `bool = False`
     """
 
 

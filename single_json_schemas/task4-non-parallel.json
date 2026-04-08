@@ -53,14 +53,12 @@
           "type": "string"
         },
         "field": {
-          "description": "Type hint: `bool`",
+          "default": false,
+          "description": "Type hint: `bool = False`",
           "title": "Field",
           "type": "boolean"
         }
       },
-      "required": [
-        "field"
-      ],
       "title": "InternalModel3",
       "type": "object"
     },
