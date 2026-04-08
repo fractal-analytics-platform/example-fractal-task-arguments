@@ -74,13 +74,8 @@
       "description": "Type hint `str = \"default\"`"
     },
     "bool_1": {
-      "title": "Bool 1",
-      "type": "boolean",
-      "description": "Type hint `bool`"
-    },
-    "bool_2": {
       "default": false,
-      "title": "Bool 2",
+      "title": "Bool 1",
       "type": "boolean",
       "description": "Type hint `bool = False`"
     },
@@ -133,7 +128,6 @@
     "zarr_dir",
     "int_1",
     "str_1",
-    "bool_1",
     "float_1",
     "enum_1",
     "literal_1"

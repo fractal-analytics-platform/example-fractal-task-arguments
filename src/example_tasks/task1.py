@@ -33,8 +33,7 @@ def task1(
     int_4: Optional[int] = None,
     str_1: str,
     str_2: str = "default",
-    bool_1: bool,
-    bool_2: bool = False,
+    bool_1: bool = False,
     float_1: float,
     float_2: float = 1.23,
     enum_1: MyEnum,
@@ -55,8 +54,7 @@ def task1(
         int_4: Type hint `Optional[int] = None`
         str_1: Type hint `str`
         str_2: Type hint `str = "default"`
-        bool_1: Type hint `bool`
-        bool_2: Type hint `bool = False`
+        bool_1: Type hint `bool = False`
         float_1: Type hint `float`
         float_2: Type hint `float = 1.23`
         enum_1: Type hint `MyEnum`
