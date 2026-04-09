@@ -8,9 +8,9 @@ def task3(
     zarr_urls: list[str],
     zarr_dir: str,
     # Task-specific arguments
-    object_arg: dict[int, bool],
-    optional_object_arg: dict[int, bool] | None = None,
-    nested_object_arg: dict[str, dict[str, str]],
+    object_arg: dict[int, int],
+    optional_object_arg: dict[str, int] | None = None,
+    nested_object_arg: dict[str, dict[str, int]],
 ):
     """
     Short description of task3
@@ -19,8 +19,8 @@ def task3(
     mock task for testing.
 
     Args:
-        object_arg: Type hint `dict[int, bool]`
-        optional_object_arg: Type hint `dict[int, bool] | None = None`
-        nested_object_arg: Type hint `dict[str, dict[str, str]]`
+        object_arg: Type hint `dict[int, int]`
+        optional_object_arg: Type hint `dict[int, int] | None = None`
+        nested_object_arg: Type hint `dict[str, dict[str, int]]`
     """
     pass
