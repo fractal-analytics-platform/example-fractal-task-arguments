@@ -395,6 +395,244 @@
       "docs_info": "## task3_objects\nShort description of task3_objects\n\nLong description of this wonderful task that actually only represents a\nmock task for testing.\n"
     },
     {
+      "name": "task4_pydantic_models",
+      "type": "parallel",
+      "executable_parallel": "task4_pydantic_models.py",
+      "args_schema_parallel": {
+        "$defs": {
+          "InternalModel1": {
+            "description": "Description of `InternalModel1`.",
+            "properties": {
+              "label": {
+                "const": "label1",
+                "default": "label1",
+                "description": "Type hint: `Literal[\"label1\"] = \"label1\"`",
+                "title": "Label",
+                "type": "string"
+              },
+              "field": {
+                "default": 1,
+                "description": "Type hint: `int = 1`",
+                "title": "Field",
+                "type": "integer"
+              }
+            },
+            "title": "InternalModel1",
+            "type": "object"
+          },
+          "InternalModel2": {
+            "description": "Description of `InternalModel2`.",
+            "properties": {
+              "label": {
+                "const": "label2",
+                "default": "label2",
+                "description": "Type hint: `Literal[\"label2\"] = \"label2\"`",
+                "title": "Label",
+                "type": "string"
+              },
+              "field": {
+                "description": "Type hint: `str`",
+                "title": "Field",
+                "type": "string"
+              }
+            },
+            "required": [
+              "field"
+            ],
+            "title": "InternalModel2",
+            "type": "object"
+          },
+          "InternalModel3": {
+            "description": "Description of `InternalModel3`.",
+            "properties": {
+              "label": {
+                "const": "label3",
+                "default": "label3",
+                "description": "Type hint: `Literal[\"label3\"] = \"label3\"`",
+                "title": "Label",
+                "type": "string"
+              },
+              "field": {
+                "default": false,
+                "description": "Type hint: `bool = False`",
+                "title": "Field",
+                "type": "boolean"
+              }
+            },
+            "title": "InternalModel3",
+            "type": "object"
+          },
+          "SimpleModel": {
+            "description": "Description of `SimpleModel`.",
+            "properties": {
+              "x": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Type hint: `int | None = None`",
+                "title": "X"
+              },
+              "y": {
+                "default": 1,
+                "description": "Type hint: `int = 1`",
+                "title": "Y",
+                "type": "integer"
+              },
+              "z": {
+                "description": "Type hint: `int`",
+                "title": "Z",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "z"
+            ],
+            "title": "SimpleModel",
+            "type": "object"
+          },
+          "SimpleModelAllOptional": {
+            "description": "Description of `SimpleModelAllOptional`.",
+            "properties": {
+              "x": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Type hint: `int | None = None`",
+                "title": "X"
+              },
+              "y": {
+                "default": 1,
+                "description": "Type hint: `int = 1`",
+                "title": "Y",
+                "type": "integer"
+              }
+            },
+            "title": "SimpleModelAllOptional",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "zarr_url": {
+            "title": "Zarr Url",
+            "type": "string",
+            "description": "Missing description"
+          },
+          "arg_1": {
+            "$ref": "#/$defs/SimpleModel",
+            "title": "Arg 1",
+            "description": "Missing description"
+          },
+          "arg_2": {
+            "$ref": "#/$defs/SimpleModelAllOptional",
+            "default": {
+              "x": null,
+              "y": 1
+            },
+            "title": "Arg 2",
+            "description": "Missing description"
+          },
+          "tagged_union_1": {
+            "discriminator": {
+              "mapping": {
+                "label1": "#/$defs/InternalModel1",
+                "label2": "#/$defs/InternalModel2",
+                "label3": "#/$defs/InternalModel3"
+              },
+              "propertyName": "label"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/InternalModel1"
+              },
+              {
+                "$ref": "#/$defs/InternalModel2"
+              },
+              {
+                "$ref": "#/$defs/InternalModel3"
+              }
+            ],
+            "title": "Tagged Union 1",
+            "description": "Missing description"
+          },
+          "tagged_union_2": {
+            "default": {
+              "label": "label3",
+              "field": false
+            },
+            "discriminator": {
+              "mapping": {
+                "label1": "#/$defs/InternalModel1",
+                "label2": "#/$defs/InternalModel2",
+                "label3": "#/$defs/InternalModel3"
+              },
+              "propertyName": "label"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/InternalModel1"
+              },
+              {
+                "$ref": "#/$defs/InternalModel2"
+              },
+              {
+                "$ref": "#/$defs/InternalModel3"
+              }
+            ],
+            "title": "Tagged Union 2",
+            "description": "Missing description"
+          },
+          "nested_tagged_union": {
+            "default": [],
+            "items": {
+              "discriminator": {
+                "mapping": {
+                  "label1": "#/$defs/InternalModel1",
+                  "label2": "#/$defs/InternalModel2",
+                  "label3": "#/$defs/InternalModel3"
+                },
+                "propertyName": "label"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/InternalModel1"
+                },
+                {
+                  "$ref": "#/$defs/InternalModel2"
+                },
+                {
+                  "$ref": "#/$defs/InternalModel3"
+                }
+              ]
+            },
+            "title": "Nested Tagged Union",
+            "type": "array",
+            "description": "Missing description"
+          }
+        },
+        "required": [
+          "zarr_url",
+          "arg_1",
+          "tagged_union_1"
+        ],
+        "type": "object",
+        "title": "Task4PydanticModels"
+      },
+      "docs_info": "## task4_pydantic_models\nShort description of task4_pydantic_models\n\nLong description of this wonderful task that actually only represents a\nmock task for testing.\n\n\nFIXME\n"
+    },
+    {
       "name": "task6_conditional_expressions",
       "type": "parallel",
       "executable_parallel": "task6_conditional_expressions.py",
