@@ -83,17 +83,36 @@ TaggedUnion = Annotated[
 ]
 
 
+class NestedModel(BaseModel):
+    """
+    Description of `NestedModel`
+    """
+
+    tagged_union_attribute: TaggedUnion
+    """
+    Type hint `tagged_union_attribute: TaggedUnion`
+    """
+
+    list_of_models: list[SimpleModel]
+    """
+    Type hint `list_of_models: list[SimpleModel]`
+    """
+
+
 @validate_call
 def task4_pydantic_models(
     *,
     # Fractal-specific arguments
     zarr_url: str,
     # Task-specific arguments
-    arg_1: SimpleModel,
-    arg_2: SimpleModelAllOptional = Field(default_factory=SimpleModelAllOptional),
-    tagged_union_1: TaggedUnion,
-    tagged_union_2: TaggedUnion = InternalModel3(),
+    simple_arg_1: SimpleModel,
+    simple_arg_2: SimpleModelAllOptional,
+    nullable_arg: SimpleModel | None,
+    nullable_arg_with_null_default: SimpleModel | None = None,
+    tagged_union: TaggedUnion,
+    tagged_union_with_default: TaggedUnion = InternalModel3(),
     nested_tagged_union: list[TaggedUnion] = Field(default_factory=list),
+    nested_model: NestedModel,
 ):
     """
     Short description of task4_pydantic_models
@@ -101,7 +120,14 @@ def task4_pydantic_models(
     Long description of this wonderful task that actually only represents a
     mock task for testing.
 
-
-    FIXME
+    Args:
+        simple_arg_1: Type hint `SimpleModel`
+        simple_arg_2: Type hint `SimpleModelAllOptional`
+        nullable_arg: Type hint `SimpleModel | None`
+        nullable_arg_with_null_default: Type hint `SimpleModel | None = None`
+        tagged_union: Type hint `TaggedUnion`
+        tagged_union_with_default: Type hint `TaggedUnion = InternalModel3()`
+        nested_tagged_union: Type hint `list[TaggedUnion] = Field(default_factory=list)`
+        nested_model: Type hint `NestedModel`
     """
     pass

@@ -62,6 +62,48 @@
       "title": "InternalModel3",
       "type": "object"
     },
+    "NestedModel": {
+      "description": "Description of `NestedModel`",
+      "properties": {
+        "tagged_union_attribute": {
+          "description": "Type hint `tagged_union_attribute: TaggedUnion`",
+          "discriminator": {
+            "mapping": {
+              "label1": "#/$defs/InternalModel1",
+              "label2": "#/$defs/InternalModel2",
+              "label3": "#/$defs/InternalModel3"
+            },
+            "propertyName": "label"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/InternalModel1"
+            },
+            {
+              "$ref": "#/$defs/InternalModel2"
+            },
+            {
+              "$ref": "#/$defs/InternalModel3"
+            }
+          ],
+          "title": "Tagged Union Attribute"
+        },
+        "list_of_models": {
+          "description": "Type hint `list_of_models: list[SimpleModel]`",
+          "items": {
+            "$ref": "#/$defs/SimpleModel"
+          },
+          "title": "List Of Models",
+          "type": "array"
+        }
+      },
+      "required": [
+        "tagged_union_attribute",
+        "list_of_models"
+      ],
+      "title": "NestedModel",
+      "type": "object"
+    },
     "SimpleModel": {
       "description": "Description of `SimpleModel`.",
       "properties": {
@@ -130,21 +172,42 @@
       "type": "string",
       "description": "Missing description"
     },
-    "arg_1": {
+    "simple_arg_1": {
       "$ref": "#/$defs/SimpleModel",
-      "title": "Arg 1",
-      "description": "Missing description"
+      "title": "Simple Arg 1",
+      "description": "Type hint `SimpleModel`"
     },
-    "arg_2": {
+    "simple_arg_2": {
       "$ref": "#/$defs/SimpleModelAllOptional",
-      "default": {
-        "x": null,
-        "y": 1
-      },
-      "title": "Arg 2",
-      "description": "Missing description"
+      "title": "Simple Arg 2",
+      "description": "Type hint `SimpleModelAllOptional`"
     },
-    "tagged_union_1": {
+    "nullable_arg": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SimpleModel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Nullable Arg",
+      "description": "Type hint `SimpleModel | None`"
+    },
+    "nullable_arg_with_null_default": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SimpleModel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Nullable Arg With Null Default",
+      "description": "Type hint `SimpleModel | None = None`"
+    },
+    "tagged_union": {
       "discriminator": {
         "mapping": {
           "label1": "#/$defs/InternalModel1",
@@ -164,10 +227,10 @@
           "$ref": "#/$defs/InternalModel3"
         }
       ],
-      "title": "Tagged Union 1",
-      "description": "Missing description"
+      "title": "Tagged Union",
+      "description": "Type hint `TaggedUnion`"
     },
-    "tagged_union_2": {
+    "tagged_union_with_default": {
       "default": {
         "label": "label3",
         "field": false
@@ -191,8 +254,8 @@
           "$ref": "#/$defs/InternalModel3"
         }
       ],
-      "title": "Tagged Union 2",
-      "description": "Missing description"
+      "title": "Tagged Union With Default",
+      "description": "Type hint `TaggedUnion = InternalModel3()`"
     },
     "nested_tagged_union": {
       "default": [],
@@ -219,13 +282,21 @@
       },
       "title": "Nested Tagged Union",
       "type": "array",
-      "description": "Missing description"
+      "description": "Type hint `list[TaggedUnion] = Field(default_factory=list)`"
+    },
+    "nested_model": {
+      "$ref": "#/$defs/NestedModel",
+      "title": "Nested Model",
+      "description": "Type hint `NestedModel`"
     }
   },
   "required": [
     "zarr_url",
-    "arg_1",
-    "tagged_union_1"
+    "simple_arg_1",
+    "simple_arg_2",
+    "nullable_arg",
+    "tagged_union",
+    "nested_model"
   ],
   "type": "object",
   "title": "Task4PydanticModels"

@@ -40,6 +40,8 @@ def task1_scalars(
     enum_2: MyEnum = MyEnum.name1,
     literal_1: Literal["a", "b", "c"],
     literal_2: Literal["a", "b", "c"] = "a",
+    custom_title: str = Field(title="This is a custom title"),
+    regex_arg: str = Field(pattern=r"^[a-zA-Z0-9_]+$"),
 ):
     """
     Short description of task1_scalars
@@ -62,5 +64,7 @@ def task1_scalars(
         enum_2: Type hint `MyEnum = MyEnum.name1`
         literal_1: Type hint:` Type hint `Literal["a", "b", "c"]`
         literal_2: Type hint `Literal["a", "b", "c"] = "a"`
+        custom_title: Type hint `str = Field(title="This is a custom title")`
+        regex_arg: Type hint `str = Field(pattern=r"^[a-zA-Z0-9_]+$")`
     """
     pass

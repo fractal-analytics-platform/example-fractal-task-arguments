@@ -122,6 +122,17 @@
       "title": "Literal 2",
       "type": "string",
       "description": "Type hint `Literal[\"a\", \"b\", \"c\"] = \"a\"`"
+    },
+    "custom_title": {
+      "title": "This is a custom title",
+      "type": "string",
+      "description": "Type hint `str = Field(title=\"This is a custom title\")`"
+    },
+    "regex_arg": {
+      "pattern": "^[a-zA-Z0-9_]+$",
+      "title": "Regex Arg",
+      "type": "string",
+      "description": "Type hint `str = Field(pattern=r\"^[a-zA-Z0-9_]+$\")`"
     }
   },
   "required": [
@@ -130,7 +141,9 @@
     "str_1",
     "float_1",
     "enum_1",
-    "literal_1"
+    "literal_1",
+    "custom_title",
+    "regex_arg"
   ],
   "type": "object",
   "title": "Task1Scalars"
