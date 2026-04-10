@@ -2,7 +2,7 @@ from pydantic import validate_call
 
 
 @validate_call
-def task3(
+def task3_objects(
     *,
     # Fractal-specific arguments
     zarr_urls: list[str],
@@ -13,7 +13,7 @@ def task3(
     nested_object_arg: dict[str, dict[str, int]],
 ):
     """
-    Short description of task3
+    Short description of task3_objects
 
     Long description of this wonderful task that actually only represents a
     mock task for testing.

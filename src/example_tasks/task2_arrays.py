@@ -3,7 +3,7 @@ from pydantic import Field
 
 
 @validate_call
-def task2(
+def task2_arrays(
     *,
     # Fractal-specific arguments
     zarr_urls: list[str],
@@ -16,7 +16,7 @@ def task2(
     my_tuple: tuple[int, int, int],
 ):
     """
-    Short description of task2
+    Short description of task2_arrays
 
     Long description of this wonderful task that actually only represents a
     mock task for testing.

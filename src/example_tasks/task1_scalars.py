@@ -21,7 +21,7 @@ class MyEnum(Enum):
 
 
 @validate_call
-def task1(
+def task1_scalars(
     *,
     # Fractal-specific arguments
     zarr_urls: list[str],
@@ -42,7 +42,7 @@ def task1(
     literal_2: Literal["a", "b", "c"] = "a",
 ):
     """
-    Short description of task1
+    Short description of task1_scalars
 
     Long description of this wonderful task that actually only represents a
     mock task for testing.
