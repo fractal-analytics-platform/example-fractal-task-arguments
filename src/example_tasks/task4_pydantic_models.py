@@ -128,7 +128,7 @@ class MyEnum(Enum):
 
 
 @validate_call
-def task4(
+def task4_pydantic_models(
     *,
     # Fractal-specific arguments
     zarr_urls: list[str],
@@ -142,7 +142,7 @@ def task4(
     nested_tagged_union: list[TaggedUnion] = Field(default_factory=list),
 ):
     """
-    Short description of task4
+    Short description of task4_pydantic_models
 
     Long description of this wonderful task that actually only represents a
     mock task for testing.

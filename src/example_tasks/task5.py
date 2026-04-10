@@ -5,7 +5,7 @@ from enum import StrEnum
 from pydantic import BaseModel
 from pydantic import Field
 from pydantic import validate_call
-from example_tasks.task4 import TaggedUnion
+from example_tasks.task4_pydantic_models import TaggedUnion
 
 
 class InternalModel4(BaseModel):
