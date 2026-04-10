@@ -1,0 +1,61 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "zarr_url": {
+      "title": "Zarr Url",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "simple_object": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Simple Object",
+      "type": "object",
+      "description": "Type hint `dict[str, str]`"
+    },
+    "object_with_default": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "default": {},
+      "title": "Object With Default",
+      "type": "object",
+      "description": "Type hint `dict[str, str] = Field(default_factory=dict)`"
+    },
+    "nullable_object": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Nullable Object",
+      "description": "Type hint `dict[str, str] | None`"
+    },
+    "nested_object": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "type": "object"
+      },
+      "title": "Nested Object",
+      "type": "object",
+      "description": "Type hint `dict[str, dict[str, int]]`"
+    }
+  },
+  "required": [
+    "zarr_url",
+    "simple_object",
+    "nullable_object",
+    "nested_object"
+  ],
+  "type": "object",
+  "title": "Task3Objects"
+}

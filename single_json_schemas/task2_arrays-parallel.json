@@ -1,0 +1,177 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "zarr_url": {
+      "title": "Zarr Url",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "simple_array": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Simple Array",
+      "type": "array",
+      "description": "Type hint `list[int]`"
+    },
+    "array_with_empty_default": {
+      "default": [],
+      "items": {
+        "type": "integer"
+      },
+      "title": "Array With Empty Default",
+      "type": "array",
+      "description": "Type hint `list[int] = Field(default_factory=list)`"
+    },
+    "array_with_default": {
+      "default": [
+        1,
+        2,
+        3
+      ],
+      "items": {
+        "type": "integer"
+      },
+      "title": "Array With Default",
+      "type": "array",
+      "description": "Type hint `list[int] = Field(default=[1, 2, 3])`"
+    },
+    "array_with_constraints": {
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 3,
+      "minItems": 2,
+      "title": "Array With Constraints",
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Type hint `list[int] = Field(min_length=2, max_length=3, json_schema_extra={\"uniqueItems\": True})`"
+    },
+    "nullable_array": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Nullable Array",
+      "description": "Type hint `list[int] | None`"
+    },
+    "nullable_array_with_null_default": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Nullable Array With Null Default",
+      "description": "Type hint `list[int] | None = None`"
+    },
+    "simple_tuple": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "Simple Tuple",
+      "type": "array",
+      "description": "Type hint `tuple[int, int, int]`"
+    },
+    "tuple_with_default": {
+      "default": [
+        1,
+        2,
+        3
+      ],
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "Tuple With Default",
+      "type": "array",
+      "description": "Type hint `tuple[int, int, int] = (1, 2, 3)`"
+    },
+    "non_homogeneous_tuple": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Non Homogeneous Tuple",
+      "type": "array",
+      "description": "Type hint `tuple[int, float, str]`"
+    },
+    "nullable_tuple": {
+      "anyOf": [
+        {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Nullable Tuple",
+      "description": "Type hint `tuple[int, int, int] | None`"
+    }
+  },
+  "required": [
+    "zarr_url",
+    "simple_array",
+    "array_with_constraints",
+    "nullable_array",
+    "simple_tuple",
+    "non_homogeneous_tuple",
+    "nullable_tuple"
+  ],
+  "type": "object",
+  "title": "Task2Arrays"
+}

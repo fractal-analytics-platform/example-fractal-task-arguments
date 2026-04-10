@@ -32,19 +32,34 @@
       "description": "Type hint `list[int] = Field(default_factory=list)`"
     },
     "array_or_None": {
-      "items": {
-        "type": "integer"
-      },
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
       "title": "Array Or None",
-      "type": "array",
       "description": "Type hint `list[int] | None`"
     },
     "array_or_None_with_default": {
-      "items": {
-        "type": "integer"
-      },
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Array Or None With Default",
-      "type": "array",
       "description": "Type hint `list[int] | None = None`"
     },
     "my_tuple": {
@@ -74,5 +89,5 @@
     "my_tuple"
   ],
   "type": "object",
-  "title": "Task2"
+  "title": "Task2Arrays"
 }

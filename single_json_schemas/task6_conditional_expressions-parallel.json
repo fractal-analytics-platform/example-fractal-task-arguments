@@ -1,0 +1,272 @@
+{
+  "$defs": {
+    "ModelDependentRequired": {
+      "additionalProperties": false,
+      "dependentRequired": {
+        "advanced_path": [
+          "advanced_1",
+          "advanced_2"
+        ]
+      },
+      "description": "Model demonstrating dependentRequired constraints.",
+      "properties": {
+        "advanced_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "When included, advanced attributes must be set.",
+          "title": "Advanced Path"
+        },
+        "advanced_1": {
+          "default": "default",
+          "description": "Advanced 1 description.",
+          "title": "Advanced 1",
+          "type": "string"
+        },
+        "advanced_2": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Advanced 1 description.",
+          "title": "Advanced 2"
+        }
+      },
+      "title": "ModelDependentRequired",
+      "type": "object"
+    },
+    "ModelIfThenElse": {
+      "additionalProperties": false,
+      "description": "Model demonstrating if/then/else coupled field constraints.",
+      "else": {
+        "properties": {
+          "dependent_parameter": {
+            "const": 0,
+            "type": "number"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "control_parameter": {
+            "const": true,
+            "type": "boolean"
+          }
+        }
+      },
+      "properties": {
+        "control_parameter": {
+          "default": false,
+          "description": "A boolean toggle controlling the constraint on `dependent_parameter`.",
+          "title": "Control Parameter",
+          "type": "boolean"
+        },
+        "dependent_parameter": {
+          "default": 1,
+          "description": "Dependent on `control_parameter`. Must be 0 when control_parameter is False, and a positive integer when control_parameter is True.",
+          "title": "Dependent Parameter",
+          "type": "integer"
+        }
+      },
+      "then": {
+        "properties": {
+          "dependent_parameter": {
+            "minimum": 1,
+            "type": "number"
+          }
+        }
+      },
+      "title": "ModelIfThenElse",
+      "type": "object"
+    },
+    "ModelMutuallyExclusive": {
+      "additionalProperties": false,
+      "description": "Model demonstrating mutually exclusive optional fields in JSON schema.",
+      "not": {
+        "allOf": [
+          {
+            "properties": {
+              "output_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "output_path"
+            ]
+          },
+          {
+            "properties": {
+              "output_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "output_url"
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "output_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Local path for output. Cannot be set together with output_url.\"",
+          "title": "Output Path"
+        },
+        "output_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Remote URL for output. Cannot be set together with output_path.",
+          "title": "Output Url"
+        }
+      },
+      "title": "ModelMutuallyExclusive",
+      "type": "object"
+    },
+    "ModelWithMultipleIfThen": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "advanced",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "advanced_config": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "advanced_config"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "use_cache": {
+                "const": true,
+                "type": "boolean"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "cache_size": {
+                "minimum": 1,
+                "type": "number"
+              }
+            }
+          }
+        }
+      ],
+      "description": "Model demonstrating multiple independent conditions in allOf",
+      "properties": {
+        "mode": {
+          "default": "simple",
+          "description": "Processing mode. When set to 'advanced', advanced_config is required.",
+          "enum": [
+            "simple",
+            "advanced"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "advanced_config": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Configuration string required when mode is 'advanced'.",
+          "title": "Advanced Config"
+        },
+        "use_cache": {
+          "default": false,
+          "description": "Determines whether cache_size is required",
+          "title": "Use Cache",
+          "type": "boolean"
+        },
+        "cache_size": {
+          "default": 1,
+          "description": "Size of the cache.",
+          "title": "Cache Size",
+          "type": "integer"
+        }
+      },
+      "title": "ModelWithMultipleIfThen",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "zarr_url": {
+      "title": "Zarr Url",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "arg_if_then_else": {
+      "$ref": "#/$defs/ModelIfThenElse",
+      "title": "Arg If Then Else",
+      "description": "Type hint `ModelIfThenElse`"
+    },
+    "arg_dependent_required": {
+      "$ref": "#/$defs/ModelDependentRequired",
+      "title": "Arg Dependent Required",
+      "description": "Type hint `ModelDependentRequired`"
+    },
+    "arg_multiple_if_then": {
+      "$ref": "#/$defs/ModelWithMultipleIfThen",
+      "title": "Arg Multiple If Then",
+      "description": "Type hint `ModelWithMultipleIfThen`"
+    },
+    "arg_mutually_exclusive": {
+      "$ref": "#/$defs/ModelMutuallyExclusive",
+      "title": "Arg Mutually Exclusive",
+      "description": "Type hint `ModelMutuallyExclusive`"
+    }
+  },
+  "required": [
+    "zarr_url",
+    "arg_if_then_else",
+    "arg_dependent_required",
+    "arg_multiple_if_then",
+    "arg_mutually_exclusive"
+  ],
+  "type": "object",
+  "title": "Task6ConditionalExpressions"
+}

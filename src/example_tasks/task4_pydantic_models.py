@@ -1,4 +1,3 @@
-from enum import Enum
 from typing import Annotated
 from typing import Literal
 
@@ -7,9 +6,9 @@ from pydantic import Field
 from pydantic import validate_call
 
 
-class ModelAllOptional(BaseModel):
+class SimpleModelAllOptional(BaseModel):
     """
-    Description of `ModelAllOptional`.
+    Description of `SimpleModelAllOptional`.
     """
 
     x: int | None = None
@@ -22,18 +21,14 @@ class ModelAllOptional(BaseModel):
     """
 
 
-class ModelSomeRequired(BaseModel):
+class SimpleModel(SimpleModelAllOptional):
     """
-    Description of `ModelSomeRequired`.
+    Description of `SimpleModel`.
     """
 
-    x: int | None = None
+    z: int
     """
-    Type hint: `int | None = None`
-    """
-    y: str
-    """
-    Type hint: `str`
+    Type hint: `int`
     """
 
 
@@ -76,9 +71,9 @@ class InternalModel3(BaseModel):
     """
     Type hint: `Literal["label3"] = "label3"`
     """
-    field: bool
+    field: bool = False
     """
-    Type hint: `bool`
+    Type hint: `bool = False`
     """
 
 
@@ -88,71 +83,51 @@ TaggedUnion = Annotated[
 ]
 
 
-class Model2(BaseModel):
+class NestedModel(BaseModel):
     """
-    Description of `Model2`.
-    """
-
-    label: Literal["label2"] = "label2"
-    """
-    Type hint: `Literal["label2"] = "label2"`
-    """
-    field2: int
-    """
-    Type hint: `int`
+    Description of `NestedModel`
     """
 
-
-class Model3(BaseModel):
+    tagged_union_attribute: TaggedUnion
     """
-    Description of `Model3`.
-    """
-
-    label: Literal["label3"] = "label3"
-    """
-    Type hint: `Literal["label3"] = "label3"`
-    """
-    field3: str
-    """
-    Type hint: `str`
+    Type hint `tagged_union_attribute: TaggedUnion`
     """
 
-
-class MyEnum(Enum):
+    list_of_models: list[SimpleModel]
     """
-    Description of `MyEnum`
+    Type hint `list_of_models: list[SimpleModel]`
     """
-
-    name1 = "Value 1"
-    name2 = "Value 2"
 
 
 @validate_call
-def task4(
+def task4_pydantic_models(
     *,
     # Fractal-specific arguments
-    zarr_urls: list[str],
-    zarr_dir: str,
+    zarr_url: str,
     # Task-specific arguments
-    pydantic_1: ModelAllOptional,
-    pydantic_2: ModelAllOptional = ModelAllOptional(),
-    pydantic_3: ModelAllOptional = Field(default_factory=ModelAllOptional),
-    pydantic_4: ModelSomeRequired,
-    tagged_union: TaggedUnion = InternalModel1(),
+    simple_arg_1: SimpleModel,
+    simple_arg_2: SimpleModelAllOptional,
+    nullable_arg: SimpleModel | None,
+    nullable_arg_with_null_default: SimpleModel | None = None,
+    tagged_union: TaggedUnion,
+    tagged_union_with_default: TaggedUnion = InternalModel3(),
     nested_tagged_union: list[TaggedUnion] = Field(default_factory=list),
+    nested_model: NestedModel,
 ):
     """
-    Short description of task4
+    Short description of task4_pydantic_models
 
     Long description of this wonderful task that actually only represents a
     mock task for testing.
 
     Args:
-        pydantic_1: Type hint `ModelAllOptional`
-        pydantic_2: Type hint `ModelAllOptional = ModelAllOptional()`
-        pydantic_3: Type hint `ModelAllOptional = Field(default_factory=ModelAllOptional)`
-        pydantic_4: Type hint `ModelSomeRequired`
-        tagged_union: Type hint `TaggedUnion = InternalModel1()`
+        simple_arg_1: Type hint `SimpleModel`
+        simple_arg_2: Type hint `SimpleModelAllOptional`
+        nullable_arg: Type hint `SimpleModel | None`
+        nullable_arg_with_null_default: Type hint `SimpleModel | None = None`
+        tagged_union: Type hint `TaggedUnion`
+        tagged_union_with_default: Type hint `TaggedUnion = InternalModel3()`
         nested_tagged_union: Type hint `list[TaggedUnion] = Field(default_factory=list)`
+        nested_model: Type hint `NestedModel`
     """
     pass

@@ -156,11 +156,10 @@ class ModelMutuallyExclusive(BaseModel):
 
 
 @validate_call
-def task6(
+def task6_conditional_expressions(
     *,
     # Fractal-specific arguments
-    zarr_urls: list[str],
-    zarr_dir: str,
+    zarr_url: str,
     # Task-specific arguments
     arg_if_then_else: ModelIfThenElse,
     arg_dependent_required: ModelDependentRequired,
@@ -168,7 +167,7 @@ def task6(
     arg_mutually_exclusive: ModelMutuallyExclusive,
 ):
     """
-    Short description of task6
+    Short description of task6_conditional_expressions
 
     Long description of this wonderful task that actually only represents a
     mock task for testing.

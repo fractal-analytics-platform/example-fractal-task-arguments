@@ -19,7 +19,7 @@ uv sync
 uv run fractal-manifest create --package example-tasks
 ```
 and find the generated manifest file at `src/example_tasks/__FRACTAL_MANIFEST__.json`. This file can be uploaded to https://fractal-analytics-platform.github.io/fractal-web/sandbox/#task-manifest, to review how [`fractal-web`](https://github.com/fractal-analytics-platform/fractal-web) would render the user interface to edit task arguments.
-3. Make a change in the call signature of a task (e.g. in `src/example_tasks/task1.py`) and re-generate the manifest. Then review how it would be rendered.
+3. Make a change in the call signature of a task (e.g. in `src/example_tasks/task1_scalars.py`) and re-generate the manifest. Then review how it would be rendered.
 4. Extract single-task JSON schema from the manifest via
 ```
 uv run ./single_json_schemas/extract.py

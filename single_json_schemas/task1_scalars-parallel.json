@@ -1,0 +1,150 @@
+{
+  "$defs": {
+    "MyEnum": {
+      "description": "Description of `MyEnum`.",
+      "enum": [
+        "Value 1",
+        "Value 2"
+      ],
+      "title": "MyEnum",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "zarr_url": {
+      "title": "Zarr Url",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "int_1": {
+      "title": "Int 1",
+      "type": "integer",
+      "description": "Type hint `int`"
+    },
+    "int_2": {
+      "default": 1,
+      "title": "Int 2",
+      "type": "integer",
+      "description": "Type hint `int = 1`"
+    },
+    "int_3": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Int 3",
+      "description": "Type hint `int | None = None`"
+    },
+    "int_4": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Int 4",
+      "description": "Type hint `Optional[int] = None`"
+    },
+    "str_1": {
+      "title": "Str 1",
+      "type": "string",
+      "description": "Type hint `str`"
+    },
+    "str_2": {
+      "default": "default",
+      "title": "Str 2",
+      "type": "string",
+      "description": "Type hint `str = \"default\"`"
+    },
+    "bool_1": {
+      "default": false,
+      "title": "Bool 1",
+      "type": "boolean",
+      "description": "Type hint `bool = False`"
+    },
+    "float_1": {
+      "title": "Float 1",
+      "type": "number",
+      "description": "Type hint `float`"
+    },
+    "float_2": {
+      "default": 1.23,
+      "title": "Float 2",
+      "type": "number",
+      "description": "Type hint `float = 1.23`"
+    },
+    "float_3": {
+      "default": 50.0,
+      "maximum": 100.0,
+      "minimum": 0.0,
+      "multipleOf": 5.0,
+      "title": "Float 3",
+      "type": "number",
+      "description": "Type hint `float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0)`"
+    },
+    "enum_1": {
+      "$ref": "#/$defs/MyEnum",
+      "title": "Enum 1",
+      "description": "Type hint `MyEnum`"
+    },
+    "enum_2": {
+      "$ref": "#/$defs/MyEnum",
+      "default": "Value 1",
+      "title": "Enum 2",
+      "description": "Type hint `MyEnum = MyEnum.name1`"
+    },
+    "literal_1": {
+      "enum": [
+        "a",
+        "b",
+        "c"
+      ],
+      "title": "Literal 1",
+      "type": "string",
+      "description": "Type hint:` Type hint `Literal[\"a\", \"b\", \"c\"]`"
+    },
+    "literal_2": {
+      "default": "a",
+      "enum": [
+        "a",
+        "b",
+        "c"
+      ],
+      "title": "Literal 2",
+      "type": "string",
+      "description": "Type hint `Literal[\"a\", \"b\", \"c\"] = \"a\"`"
+    },
+    "custom_title": {
+      "title": "This is a custom title",
+      "type": "string",
+      "description": "Type hint `str = Field(title=\"This is a custom title\")`"
+    },
+    "regex_arg": {
+      "pattern": "^[a-zA-Z0-9_]+$",
+      "title": "Regex Arg",
+      "type": "string",
+      "description": "Type hint `str = Field(pattern=r\"^[a-zA-Z0-9_]+$\")`"
+    }
+  },
+  "required": [
+    "zarr_url",
+    "int_1",
+    "str_1",
+    "float_1",
+    "enum_1",
+    "literal_1",
+    "custom_title",
+    "regex_arg"
+  ],
+  "type": "object",
+  "title": "Task1Scalars"
+}

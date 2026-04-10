@@ -1,13 +1,13 @@
 {
   "$defs": {
     "MyEnum": {
+      "description": "Description of `MyEnum`.",
       "enum": [
         "Value 1",
         "Value 2"
       ],
       "title": "MyEnum",
-      "type": "string",
-      "description": "Missing description for MyEnum."
+      "type": "string"
     }
   },
   "additionalProperties": false,
@@ -37,13 +37,29 @@
       "description": "Type hint `int = 1`"
     },
     "int_3": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Int 3",
-      "type": "integer",
       "description": "Type hint `int | None = None`"
     },
     "int_4": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Int 4",
-      "type": "integer",
       "description": "Type hint `Optional[int] = None`"
     },
     "str_1": {
@@ -58,13 +74,8 @@
       "description": "Type hint `str = \"default\"`"
     },
     "bool_1": {
-      "title": "Bool 1",
-      "type": "boolean",
-      "description": "Type hint `bool`"
-    },
-    "bool_2": {
       "default": false,
-      "title": "Bool 2",
+      "title": "Bool 1",
       "type": "boolean",
       "description": "Type hint `bool = False`"
     },
@@ -98,7 +109,7 @@
       ],
       "title": "Literal 1",
       "type": "string",
-      "description": "Missing description"
+      "description": "Type hint:` Type hint `Literal[\"a\", \"b\", \"c\"]`"
     },
     "literal_2": {
       "default": "a",
@@ -117,11 +128,10 @@
     "zarr_dir",
     "int_1",
     "str_1",
-    "bool_1",
     "float_1",
     "enum_1",
     "literal_1"
   ],
   "type": "object",
-  "title": "Task1"
+  "title": "Task1Scalars"
 }

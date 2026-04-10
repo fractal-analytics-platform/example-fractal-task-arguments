@@ -16,30 +16,38 @@
     },
     "object_arg": {
       "additionalProperties": {
-        "type": "boolean"
+        "type": "integer"
       },
       "title": "Object Arg",
       "type": "object",
-      "description": "Type hint `dict[int, bool]`"
+      "description": "Type hint `dict[int, int]`"
     },
     "optional_object_arg": {
-      "additionalProperties": {
-        "type": "boolean"
-      },
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
       "title": "Optional Object Arg",
-      "type": "object",
-      "description": "Type hint `dict[int, bool] | None = None`"
+      "description": "Type hint `dict[int, int] | None = None`"
     },
     "nested_object_arg": {
       "additionalProperties": {
         "additionalProperties": {
-          "type": "string"
+          "type": "integer"
         },
         "type": "object"
       },
       "title": "Nested Object Arg",
       "type": "object",
-      "description": "Type hint `dict[str, dict[str, str]]`"
+      "description": "Type hint `dict[str, dict[str, int]]`"
     }
   },
   "required": [
@@ -49,5 +57,5 @@
     "nested_object_arg"
   ],
   "type": "object",
-  "title": "Task3"
+  "title": "Task3Objects"
 }
