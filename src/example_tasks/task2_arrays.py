@@ -8,11 +8,15 @@ def task2_arrays(
     # Fractal-specific arguments
     zarr_url: str,
     # Task-specific arguments
-    array: list[int],
-    array_with_default: list[int] = Field(default_factory=list),
-    array_or_None: list[int] | None,
-    array_or_None_with_default: list[int] | None = None,
-    my_tuple: tuple[int, int, int],
+    simple_array: list[int],
+    array_with_empty_default: list[int] = Field(default_factory=list),
+    array_with_default: list[int] = Field(default=[1, 2, 3]),
+    nullable_array: list[int] | None,
+    nullable_array_with_null_default: list[int] | None = None,
+    simple_tuple: tuple[int, int, int],
+    tuple_with_default: tuple[int, int, int] = (1, 2, 3),
+    non_homogeneous_tuple: tuple[int, float, str],
+    nullable_tuple: tuple[int, int, int] | None,
 ):
     """
     Short description of task2_arrays
@@ -21,10 +25,14 @@ def task2_arrays(
     mock task for testing.
 
     Args:
-        array: Type hint `list[int]`
-        array_with_default: Type hint `list[int] = Field(default_factory=list)`
-        array_or_None: Type hint `list[int] | None`
-        array_or_None_with_default: Type hint `list[int] | None = None`
-        my_tuple: Type hint `tuple[int, int, int]`
+        simple_array: Type hint `list[int]`
+        array_with_empty_default: Type hint `list[int] = Field(default_factory=list)`
+        array_with_default: Type hint `list[int] = Field(default=[1, 2, 3])`
+        nullable_array: Type hint `list[int] | None`
+        nullable_array_with_null_default: Type hint `list[int] | None = None`
+        simple_tuple: Type hint `tuple[int, int, int]`
+        tuple_with_default: Type hint `tuple[int, int, int] = (1, 2, 3)`
+        non_homogeneous_tuple: Type hint `tuple[int, float, str]`
+        nullable_tuple: Type hint `tuple[int, int, int] | None`
     """
     pass
