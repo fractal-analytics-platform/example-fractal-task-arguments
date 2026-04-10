@@ -24,8 +24,7 @@ class MyEnum(Enum):
 def task1_scalars(
     *,
     # Fractal-specific arguments
-    zarr_urls: list[str],
-    zarr_dir: str,
+    zarr_url: str,
     # Task-specific arguments
     int_1: int,
     int_2: int = 1,

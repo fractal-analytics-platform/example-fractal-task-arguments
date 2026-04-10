@@ -1,0 +1,84 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "zarr_url": {
+      "title": "Zarr Url",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "array": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Array",
+      "type": "array",
+      "description": "Type hint `list[int]`"
+    },
+    "array_with_default": {
+      "default": [],
+      "items": {
+        "type": "integer"
+      },
+      "title": "Array With Default",
+      "type": "array",
+      "description": "Type hint `list[int] = Field(default_factory=list)`"
+    },
+    "array_or_None": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Array Or None",
+      "description": "Type hint `list[int] | None`"
+    },
+    "array_or_None_with_default": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Array Or None With Default",
+      "description": "Type hint `list[int] | None = None`"
+    },
+    "my_tuple": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "My Tuple",
+      "type": "array",
+      "description": "Type hint `tuple[int, int, int]`"
+    }
+  },
+  "required": [
+    "zarr_url",
+    "array",
+    "array_or_None",
+    "my_tuple"
+  ],
+  "type": "object",
+  "title": "Task2Arrays"
+}

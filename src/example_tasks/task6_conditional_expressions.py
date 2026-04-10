@@ -159,8 +159,7 @@ class ModelMutuallyExclusive(BaseModel):
 def task6_conditional_expressions(
     *,
     # Fractal-specific arguments
-    zarr_urls: list[str],
-    zarr_dir: str,
+    zarr_url: str,
     # Task-specific arguments
     arg_if_then_else: ModelIfThenElse,
     arg_dependent_required: ModelDependentRequired,

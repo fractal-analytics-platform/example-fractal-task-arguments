@@ -6,8 +6,7 @@ from pydantic import Field
 def task2_arrays(
     *,
     # Fractal-specific arguments
-    zarr_urls: list[str],
-    zarr_dir: str,
+    zarr_url: str,
     # Task-specific arguments
     array: list[int],
     array_with_default: list[int] = Field(default_factory=list),

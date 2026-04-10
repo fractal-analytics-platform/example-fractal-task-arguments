@@ -5,8 +5,7 @@ from pydantic import validate_call
 def task3_objects(
     *,
     # Fractal-specific arguments
-    zarr_urls: list[str],
-    zarr_dir: str,
+    zarr_url: str,
     # Task-specific arguments
     object_arg: dict[int, int],
     optional_object_arg: dict[str, int] | None = None,

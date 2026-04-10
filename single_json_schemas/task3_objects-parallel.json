@@ -1,0 +1,52 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "zarr_url": {
+      "title": "Zarr Url",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "object_arg": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Object Arg",
+      "type": "object",
+      "description": "Type hint `dict[int, int]`"
+    },
+    "optional_object_arg": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Optional Object Arg",
+      "description": "Type hint `dict[int, int] | None = None`"
+    },
+    "nested_object_arg": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "type": "object"
+      },
+      "title": "Nested Object Arg",
+      "type": "object",
+      "description": "Type hint `dict[str, dict[str, int]]`"
+    }
+  },
+  "required": [
+    "zarr_url",
+    "object_arg",
+    "nested_object_arg"
+  ],
+  "type": "object",
+  "title": "Task3Objects"
+}

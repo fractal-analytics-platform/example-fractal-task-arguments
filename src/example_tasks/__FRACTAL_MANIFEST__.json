@@ -3,9 +3,9 @@
   "task_list": [
     {
       "name": "task1_scalars",
-      "type": "non_parallel",
-      "executable_non_parallel": "task1_scalars.py",
-      "args_schema_non_parallel": {
+      "type": "parallel",
+      "executable_parallel": "task1_scalars.py",
+      "args_schema_parallel": {
         "$defs": {
           "MyEnum": {
             "description": "Description of `MyEnum`.",
@@ -19,16 +19,8 @@
         },
         "additionalProperties": false,
         "properties": {
-          "zarr_urls": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Zarr Urls",
-            "type": "array",
-            "description": "Missing description"
-          },
-          "zarr_dir": {
-            "title": "Zarr Dir",
+          "zarr_url": {
+            "title": "Zarr Url",
             "type": "string",
             "description": "Missing description"
           },
@@ -131,8 +123,7 @@
           }
         },
         "required": [
-          "zarr_urls",
-          "zarr_dir",
+          "zarr_url",
           "int_1",
           "str_1",
           "float_1",
@@ -146,21 +137,13 @@
     },
     {
       "name": "task2_arrays",
-      "type": "non_parallel",
-      "executable_non_parallel": "task2_arrays.py",
-      "args_schema_non_parallel": {
+      "type": "parallel",
+      "executable_parallel": "task2_arrays.py",
+      "args_schema_parallel": {
         "additionalProperties": false,
         "properties": {
-          "zarr_urls": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Zarr Urls",
-            "type": "array",
-            "description": "Missing description"
-          },
-          "zarr_dir": {
-            "title": "Zarr Dir",
+          "zarr_url": {
+            "title": "Zarr Url",
             "type": "string",
             "description": "Missing description"
           },
@@ -232,8 +215,7 @@
           }
         },
         "required": [
-          "zarr_urls",
-          "zarr_dir",
+          "zarr_url",
           "array",
           "array_or_None",
           "my_tuple"
@@ -245,21 +227,13 @@
     },
     {
       "name": "task3_objects",
-      "type": "non_parallel",
-      "executable_non_parallel": "task3_objects.py",
-      "args_schema_non_parallel": {
+      "type": "parallel",
+      "executable_parallel": "task3_objects.py",
+      "args_schema_parallel": {
         "additionalProperties": false,
         "properties": {
-          "zarr_urls": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Zarr Urls",
-            "type": "array",
-            "description": "Missing description"
-          },
-          "zarr_dir": {
-            "title": "Zarr Dir",
+          "zarr_url": {
+            "title": "Zarr Url",
             "type": "string",
             "description": "Missing description"
           },
@@ -300,8 +274,7 @@
           }
         },
         "required": [
-          "zarr_urls",
-          "zarr_dir",
+          "zarr_url",
           "object_arg",
           "nested_object_arg"
         ],
@@ -312,9 +285,9 @@
     },
     {
       "name": "task6_conditional_expressions",
-      "type": "non_parallel",
-      "executable_non_parallel": "task6_conditional_expressions.py",
-      "args_schema_non_parallel": {
+      "type": "parallel",
+      "executable_parallel": "task6_conditional_expressions.py",
+      "args_schema_parallel": {
         "$defs": {
           "ModelDependentRequired": {
             "additionalProperties": false,
@@ -550,18 +523,10 @@
         },
         "additionalProperties": false,
         "properties": {
-          "zarr_urls": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Zarr Urls",
-            "type": "array",
-            "description": "List of input Zarr URLs."
-          },
-          "zarr_dir": {
-            "title": "Zarr Dir",
+          "zarr_url": {
+            "title": "Zarr Url",
             "type": "string",
-            "description": "Output directory for Zarr data."
+            "description": "Missing description"
           },
           "arg_if_then_else": {
             "$ref": "#/$defs/ModelIfThenElse",
@@ -585,8 +550,7 @@
           }
         },
         "required": [
-          "zarr_urls",
-          "zarr_dir",
+          "zarr_url",
           "arg_if_then_else",
           "arg_dependent_required",
           "arg_multiple_if_then",
