@@ -36,6 +36,17 @@
       "type": "array",
       "description": "Type hint `list[int] = Field(default=[1, 2, 3])`"
     },
+    "array_with_constraints": {
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 3,
+      "minItems": 2,
+      "title": "Array With Constraints",
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Type hint `list[int] = Field(min_length=2, max_length=3, json_schema_extra={\"uniqueItems\": True})`"
+    },
     "nullable_array": {
       "anyOf": [
         {
@@ -155,6 +166,7 @@
   "required": [
     "zarr_url",
     "simple_array",
+    "array_with_constraints",
     "nullable_array",
     "simple_tuple",
     "non_homogeneous_tuple",

@@ -89,6 +89,15 @@
             "type": "number",
             "description": "Type hint `float = 1.23`"
           },
+          "float_3": {
+            "default": 50.0,
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "multipleOf": 5.0,
+            "title": "Float 3",
+            "type": "number",
+            "description": "Type hint `float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0)`"
+          },
           "enum_1": {
             "$ref": "#/$defs/MyEnum",
             "title": "Enum 1",
@@ -176,6 +185,17 @@
             "title": "Array With Default",
             "type": "array",
             "description": "Type hint `list[int] = Field(default=[1, 2, 3])`"
+          },
+          "array_with_constraints": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 3,
+            "minItems": 2,
+            "title": "Array With Constraints",
+            "type": "array",
+            "uniqueItems": true,
+            "description": "Type hint `list[int] = Field(min_length=2, max_length=3, json_schema_extra={\"uniqueItems\": True})`"
           },
           "nullable_array": {
             "anyOf": [
@@ -296,6 +316,7 @@
         "required": [
           "zarr_url",
           "simple_array",
+          "array_with_constraints",
           "nullable_array",
           "simple_tuple",
           "non_homogeneous_tuple",
@@ -318,19 +339,28 @@
             "type": "string",
             "description": "Missing description"
           },
-          "object_arg": {
+          "simple_object": {
             "additionalProperties": {
-              "type": "integer"
+              "type": "string"
             },
-            "title": "Object Arg",
+            "title": "Simple Object",
             "type": "object",
-            "description": "Type hint `dict[int, int]`"
+            "description": "Type hint `dict[str, str]`"
           },
-          "optional_object_arg": {
+          "object_with_default": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "title": "Object With Default",
+            "type": "object",
+            "description": "Type hint `dict[str, str] = Field(default_factory=dict)`"
+          },
+          "nullable_object": {
             "anyOf": [
               {
                 "additionalProperties": {
-                  "type": "integer"
+                  "type": "string"
                 },
                 "type": "object"
               },
@@ -338,26 +368,26 @@
                 "type": "null"
               }
             ],
-            "default": null,
-            "title": "Optional Object Arg",
-            "description": "Type hint `dict[int, int] | None = None`"
+            "title": "Nullable Object",
+            "description": "Type hint `dict[str, str] | None`"
           },
-          "nested_object_arg": {
+          "nested_object": {
             "additionalProperties": {
               "additionalProperties": {
                 "type": "integer"
               },
               "type": "object"
             },
-            "title": "Nested Object Arg",
+            "title": "Nested Object",
             "type": "object",
             "description": "Type hint `dict[str, dict[str, int]]`"
           }
         },
         "required": [
           "zarr_url",
-          "object_arg",
-          "nested_object_arg"
+          "simple_object",
+          "nullable_object",
+          "nested_object"
         ],
         "type": "object",
         "title": "Task3Objects"

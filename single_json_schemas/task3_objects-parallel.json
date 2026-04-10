@@ -6,19 +6,28 @@
       "type": "string",
       "description": "Missing description"
     },
-    "object_arg": {
+    "simple_object": {
       "additionalProperties": {
-        "type": "integer"
+        "type": "string"
       },
-      "title": "Object Arg",
+      "title": "Simple Object",
       "type": "object",
-      "description": "Type hint `dict[int, int]`"
+      "description": "Type hint `dict[str, str]`"
     },
-    "optional_object_arg": {
+    "object_with_default": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "default": {},
+      "title": "Object With Default",
+      "type": "object",
+      "description": "Type hint `dict[str, str] = Field(default_factory=dict)`"
+    },
+    "nullable_object": {
       "anyOf": [
         {
           "additionalProperties": {
-            "type": "integer"
+            "type": "string"
           },
           "type": "object"
         },
@@ -26,26 +35,26 @@
           "type": "null"
         }
       ],
-      "default": null,
-      "title": "Optional Object Arg",
-      "description": "Type hint `dict[int, int] | None = None`"
+      "title": "Nullable Object",
+      "description": "Type hint `dict[str, str] | None`"
     },
-    "nested_object_arg": {
+    "nested_object": {
       "additionalProperties": {
         "additionalProperties": {
           "type": "integer"
         },
         "type": "object"
       },
-      "title": "Nested Object Arg",
+      "title": "Nested Object",
       "type": "object",
       "description": "Type hint `dict[str, dict[str, int]]`"
     }
   },
   "required": [
     "zarr_url",
-    "object_arg",
-    "nested_object_arg"
+    "simple_object",
+    "nullable_object",
+    "nested_object"
   ],
   "type": "object",
   "title": "Task3Objects"

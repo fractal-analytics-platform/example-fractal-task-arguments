@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Literal
 from typing import Optional
 
-from pydantic import validate_call
+from pydantic import validate_call, Field
 
 
 class MyEnum(Enum):
@@ -35,6 +35,7 @@ def task1_scalars(
     bool_1: bool = False,
     float_1: float,
     float_2: float = 1.23,
+    float_3: float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0),
     enum_1: MyEnum,
     enum_2: MyEnum = MyEnum.name1,
     literal_1: Literal["a", "b", "c"],
@@ -56,6 +57,7 @@ def task1_scalars(
         bool_1: Type hint `bool = False`
         float_1: Type hint `float`
         float_2: Type hint `float = 1.23`
+        float_3: Type hint `float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0)`
         enum_1: Type hint `MyEnum`
         enum_2: Type hint `MyEnum = MyEnum.name1`
         literal_1: Type hint:` Type hint `Literal["a", "b", "c"]`

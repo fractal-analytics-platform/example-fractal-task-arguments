@@ -11,6 +11,11 @@ def task2_arrays(
     simple_array: list[int],
     array_with_empty_default: list[int] = Field(default_factory=list),
     array_with_default: list[int] = Field(default=[1, 2, 3]),
+    array_with_constraints: list[int] = Field(
+        min_length=2,
+        max_length=3,
+        json_schema_extra={"uniqueItems": True},
+    ),
     nullable_array: list[int] | None,
     nullable_array_with_null_default: list[int] | None = None,
     simple_tuple: tuple[int, int, int],
@@ -28,6 +33,7 @@ def task2_arrays(
         simple_array: Type hint `list[int]`
         array_with_empty_default: Type hint `list[int] = Field(default_factory=list)`
         array_with_default: Type hint `list[int] = Field(default=[1, 2, 3])`
+        array_with_constraints: Type hint `list[int] = Field(min_length=2, max_length=3, json_schema_extra={"uniqueItems": True})`
         nullable_array: Type hint `list[int] | None`
         nullable_array_with_null_default: Type hint `list[int] | None = None`
         simple_tuple: Type hint `tuple[int, int, int]`

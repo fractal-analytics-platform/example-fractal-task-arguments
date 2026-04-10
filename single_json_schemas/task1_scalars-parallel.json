@@ -82,6 +82,15 @@
       "type": "number",
       "description": "Type hint `float = 1.23`"
     },
+    "float_3": {
+      "default": 50.0,
+      "maximum": 100.0,
+      "minimum": 0.0,
+      "multipleOf": 5.0,
+      "title": "Float 3",
+      "type": "number",
+      "description": "Type hint `float = Field(ge=0.0, le=100.0, default=50.0, multiple_of=5.0)`"
+    },
     "enum_1": {
       "$ref": "#/$defs/MyEnum",
       "title": "Enum 1",
