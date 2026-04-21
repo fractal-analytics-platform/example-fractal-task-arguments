@@ -1,0 +1,61 @@
+{
+  "$defs": {
+    "MyModel": {
+      "description": "Description of `MyModel`",
+      "properties": {
+        "name": {
+          "description": "Description of `name`",
+          "title": "Name",
+          "type": "string"
+        },
+        "x": {
+          "description": "Description of `x`",
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Description of `y`",
+          "title": "Y"
+        }
+      },
+      "required": [
+        "name",
+        "x"
+      ],
+      "title": "MyModel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "zarr_url": {
+      "title": "Zarr Url",
+      "type": "string",
+      "description": "Missing description"
+    },
+    "json_arg": {
+      "contentMediaType": "application/json",
+      "contentSchema": {
+        "$ref": "#/$defs/MyModel"
+      },
+      "title": "Json Arg",
+      "type": "string",
+      "description": "Type hint `Json[MyModel]`"
+    }
+  },
+  "required": [
+    "zarr_url",
+    "json_arg"
+  ],
+  "type": "object",
+  "title": "Task7JsonStrings"
+}
