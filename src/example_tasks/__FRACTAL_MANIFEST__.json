@@ -993,6 +993,87 @@
         "title": "Task6ConditionalExpressions"
       },
       "docs_info": "## task6_conditional_expressions\nShort description of task6_conditional_expressions\n\nLong description of this wonderful task that actually only represents a\nmock task for testing.\n"
+    },
+    {
+      "name": "task7_json_strings",
+      "type": "parallel",
+      "executable_parallel": "task7_json_strings.py",
+      "args_schema_parallel": {
+        "$defs": {
+          "SingleROI": {
+            "properties": {
+              "FieldIndex": {
+                "minLength": 1,
+                "title": "Fieldindex",
+                "type": "string"
+              },
+              "x_micrometer": {
+                "title": "X Micrometer",
+                "type": "number"
+              },
+              "y_micrometer": {
+                "title": "Y Micrometer",
+                "type": "number"
+              },
+              "z_micrometer": {
+                "title": "Z Micrometer",
+                "type": "number"
+              },
+              "len_x_micrometer": {
+                "minimum": 0,
+                "title": "Len X Micrometer",
+                "type": "number"
+              },
+              "len_y_micrometer": {
+                "minimum": 0,
+                "title": "Len Y Micrometer",
+                "type": "number"
+              },
+              "len_z_micrometer": {
+                "minimum": 0,
+                "title": "Len Z Micrometer",
+                "type": "number"
+              }
+            },
+            "required": [
+              "FieldIndex",
+              "x_micrometer",
+              "y_micrometer",
+              "z_micrometer",
+              "len_x_micrometer",
+              "len_y_micrometer",
+              "len_z_micrometer"
+            ],
+            "title": "SingleROI",
+            "type": "object",
+            "description": "Missing description for SingleROI."
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "zarr_url": {
+            "title": "Zarr Url",
+            "type": "string",
+            "description": "Missing description"
+          },
+          "single_roi": {
+            "contentMediaType": "application/json",
+            "contentSchema": {
+              "$ref": "#/$defs/SingleROI"
+            },
+            "title": "Single Roi",
+            "type": "string",
+            "description": "Type hint `Json[SingleROI]`."
+          }
+        },
+        "required": [
+          "zarr_url",
+          "single_roi"
+        ],
+        "type": "object",
+        "title": "Task7JsonStrings"
+      },
+      "docs_info": "## task7_json_strings\nShort description of task4_pydantic_models\n\nLong description of this wonderful task that actually only represents a\nmock task for testing.\n"
     }
   ],
   "has_args_schemas": true,

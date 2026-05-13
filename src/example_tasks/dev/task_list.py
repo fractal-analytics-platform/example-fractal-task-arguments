@@ -9,4 +9,5 @@ TASK_LIST = [
         name="task6_conditional_expressions",
         executable="task6_conditional_expressions.py",
     ),
+    ParallelTask(name="task7_json_strings", executable="task7_json_strings.py"),
 ]
