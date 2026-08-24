@@ -46,8 +46,22 @@ class ModelDependentRequired(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
         json_schema_extra={
-            "dependentRequired": {
-                "advanced_path": ["advanced_1", "advanced_2"],
+            "if": {
+                "properties": {
+                    "advanced_path": {
+                        "type": "string"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "advanced_1": {
+                        "type": "string"
+                    },
+                    "advanced_2": {
+                        "type": "integer"
+                    }
+                }
             }
         },
     )
@@ -57,7 +71,7 @@ class ModelDependentRequired(BaseModel):
     When included, advanced attributes must be set.
     """
 
-    advanced_1: str = "default"
+    advanced_1: str | None = "default"
     """
     Advanced 1 description.
     """
